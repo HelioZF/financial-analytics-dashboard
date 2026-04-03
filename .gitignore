@@ -1,0 +1,24 @@
+# Folders
+base/
+planner/
+__pycache__/
+.vscode/
+.pytest_cache/
+htmlcov/
+.coverage
+.venv/
+venv/
+.mypy_cache/
+.ruff_cache/
+
+
+# Files
+.env
+CONTEXT.md
+PROJECT_BRIEF.md
+*.pyc
+*.log
+*.pem
+*.key
+*.cert
+Thumbs.db
