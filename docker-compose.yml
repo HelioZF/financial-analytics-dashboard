@@ -1,0 +1,57 @@
+services:
+  # ---------- PostgreSQL ----------
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${DB_USER:-finance_user}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-finance_pass}
+      POSTGRES_DB: ${DB_NAME:-finance}
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./migrations:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-finance_user} -d ${DB_NAME:-finance}"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  # ---------- Seed data (runs once) ----------
+  seed:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: ${DB_NAME:-finance}
+      DB_USER: ${DB_USER:-finance_user}
+      DB_PASSWORD: ${DB_PASSWORD:-finance_pass}
+    command: ["python", "-m", "seed.seed_data"]
+    restart: "no"
+
+  # ---------- FastAPI app ----------
+  app:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+      seed:
+        condition: service_completed_successfully
+    ports:
+      - "${APP_PORT:-3200}:3200"
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: ${DB_NAME:-finance}
+      DB_USER: ${DB_USER:-finance_user}
+      DB_PASSWORD: ${DB_PASSWORD:-finance_pass}
+      SECRET_KEY: ${SECRET_KEY:-change-me-to-a-random-string}
+      APP_DEBUG: ${APP_DEBUG:-false}
+    restart: unless-stopped
+
+volumes:
+  pgdata:
