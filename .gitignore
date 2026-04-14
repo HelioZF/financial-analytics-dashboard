@@ -16,6 +16,7 @@ venv/
 .env
 CONTEXT.md
 PROJECT_BRIEF.md
+CLAUDE.md
 *.pyc
 *.log
 *.pem

@@ -4,7 +4,7 @@
 class User:
     id: int
     display_name: str
-    user_name: str
+    username: str
     password_hash: str
 
 @dataclass
@@ -27,6 +27,7 @@ class Category:
 @dataclass
 class Budget:
     id: int
+    user_id: int
     month: int
     year: int
     category_id: int
