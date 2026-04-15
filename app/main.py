@@ -5,6 +5,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from starlette.middleware.sessions import SessionMiddleware
 from app.config import settings
+from app.auth import router as auth_router
 
 BASE_DIR = Path(__file__).resolve().parent
 
@@ -16,7 +17,8 @@ templates = Jinja2Templates(directory=BASE_DIR / "templates")
 
 
 # Include routers
-# app.include_router(auth_router, prefix="/auth", tags=["auth"])
+app.include_router(auth_router)
+
 # overview
 # expenses
 # income
