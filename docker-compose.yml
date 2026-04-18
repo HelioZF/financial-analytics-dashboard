@@ -30,7 +30,8 @@ services:
       DB_NAME: ${DB_NAME:-finance}
       DB_USER: ${DB_USER:-finance_user}
       DB_PASSWORD: ${DB_PASSWORD:-finance_pass}
-    command: ["python", "-m", "seed.seed_data"]
+      SECRET_KEY: ${SECRET_KEY:-change-me-to-a-random-string}
+    command: ["python", "-m", "seed.seed"]
     restart: "no"
 
   # ---------- FastAPI app ----------

@@ -3,7 +3,7 @@ import random
 from datetime import datetime
 from decimal import Decimal
 
-from passlib.context import CryptContext
+import bcrypt
 from sqlalchemy import text
 
 from app.database.connection import SessionLocal
@@ -42,11 +42,9 @@ NARRATIVE_ARC = {
 }
 
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-
-
 def hash_password(plain_password: str) -> str:
-    return pwd_context.hash(plain_password)
+    hashed_bytes = bcrypt.hashpw(plain_password.encode("utf-8"), bcrypt.gensalt())
+    return hashed_bytes.decode("utf-8")
 
 
 def gen_month(year, month, user_id, category_ids, arc_note) -> list[dict]:

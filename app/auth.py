@@ -3,19 +3,21 @@ from pathlib import Path
 from fastapi import APIRouter, Depends, Form, HTTPException, Request
 from fastapi.responses import RedirectResponse
 from fastapi.templating import Jinja2Templates
-from passlib.context import CryptContext
+import bcrypt
 from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.database.connection import get_session
 
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+# IMPROVE (optional): hash_password lives in seed/seed.py, verify_password lives here.
+#   Consider extracting both into app/security.py so auth logic has one home.
+#   Not required for this fix — just a cleaner structure if you want it later.
 templates = Jinja2Templates(directory=Path(__file__).parent / "templates")
 
 
 def verify_password(plain: str, hashed: str) -> bool:
-    return pwd_context.verify(plain, hashed)
+    return bcrypt.checkpw(plain.encode("utf-8"), hashed.encode("utf-8"))
 
 
 def require_login(request: Request) -> int:
@@ -33,10 +35,8 @@ router = APIRouter(tags=["auth"])
 
 @router.get("/login")
 async def login_form(request: Request, error: str | None = None):
-    return templates.TemplateResponse(
-        "login.html",
-        {"request": request, "error": error},
-    )
+    return templates.TemplateResponse(request, "login.html", {"error": error})
+
 
 
 @router.post("/login")
