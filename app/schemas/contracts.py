@@ -1,3 +1,5 @@
+from typing import List
+from dataclasses import dataclass
 
 # Overview page contracts
 
