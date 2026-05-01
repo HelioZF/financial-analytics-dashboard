@@ -218,6 +218,59 @@ h1, h2, h3, h4 { margin: 0; font-weight: 600; }
     padding: var(--space-2) 0;
 }
 
+/* ===== Budget progress rows ===== */
+.budget-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+.budget-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+.budget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+}
+.budget-category { font-weight: 500; }
+.budget-amounts {
+    font-variant-numeric: tabular-nums;
+    color: var(--color-text-muted);
+}
+.budget-spent {
+    color: var(--color-text);
+    font-weight: 500;
+}
+.budget-divider { margin: 0 0.25rem; }
+.budget-bar {
+    width: 100%;
+    height: 8px;
+    background: #f1f5f9;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.budget-bar-fill {
+    height: 100%;
+    background: var(--color-success);
+    transition: width 0.3s ease;
+}
+.budget-row--over .budget-bar-fill {
+    background: var(--color-danger);
+}
+.budget-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+}
+.budget-status--over {
+    color: var(--color-danger);
+    font-weight: 500;
+}
+
 /* ===== Login page (matches existing login.html structure) ===== */
 .login-card {
     background: var(--color-surface);

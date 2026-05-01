@@ -83,3 +83,24 @@ class IncomePageData:
     monthly_totals: List[MonthlyTotal]
     category_breakdown: List[CategoryBreakdown]
     top_items: List[IncomeItem]
+
+
+# Budget page contracts
+
+@dataclass
+class BudgetRow:
+    category_name: str
+    category_color: str
+    budgeted: float
+    spent: float
+    percent_used: float
+    status: str  # "under" | "over"
+
+
+@dataclass
+class BudgetPageData:
+    month_reference: int
+    year_reference: int
+    rows: List[BudgetRow]
+    total_budgeted: float
+    total_spent: float

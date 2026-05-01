@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Budget · Finance Dashboard{% endblock %}
+{% block page_title %}Budget{% endblock %}
+{% block page_meta %}
+<span class="period">{{ "%02d"|format(data.month_reference) }}/{{ data.year_reference }}</span>
+{% endblock %}
+
+{% block content %}
+<section class="kpi-row">
+    <article class="kpi-card">
+        <div class="kpi-label">Total Budgeted</div>
+        <div class="kpi-value">${{ "{:,.2f}".format(data.total_budgeted) }}</div>
+    </article>
+    <article class="kpi-card">
+        <div class="kpi-label">Total Spent</div>
+        <div class="kpi-value">${{ "{:,.2f}".format(data.total_spent) }}</div>
+    </article>
+    <article class="kpi-card{% if data.total_spent > data.total_budgeted %} kpi-card--negative{% endif %}">
+        <div class="kpi-label">Remaining</div>
+        <div class="kpi-value">${{ "{:,.2f}".format(data.total_budgeted - data.total_spent) }}</div>
+    </article>
+</section>
+
+<section class="panel">
+    <h2 class="panel-title">Category budgets</h2>
+    {% if data.rows %}
+    <div class="budget-list">
+        {% for row in data.rows %}
+        <div class="budget-row{% if row.status == 'over' %} budget-row--over{% endif %}">
+            <div class="budget-header">
+                <span class="budget-category">
+                    <span class="dot" style="background-color: {{ row.category_color }}"></span>
+                    {{ row.category_name }}
+                </span>
+                <span class="budget-amounts">
+                    <span class="budget-spent">${{ "{:,.2f}".format(row.spent) }}</span>
+                    <span class="budget-divider">/</span>
+                    <span class="budget-budgeted">${{ "{:,.2f}".format(row.budgeted) }}</span>
+                </span>
+            </div>
+            <div class="budget-bar">
+                <div class="budget-bar-fill" style="width: {{ [row.percent_used, 100]|min }}%"></div>
+            </div>
+            <div class="budget-meta">
+                <span class="budget-percent">{{ "%.1f"|format(row.percent_used) }}% used</span>
+                {% if row.status == 'over' %}
+                <span class="budget-status budget-status--over">Over budget by ${{ "{:,.2f}".format(row.spent - row.budgeted) }}</span>
+                {% else %}
+                <span class="budget-status budget-status--under">${{ "{:,.2f}".format(row.budgeted - row.spent) }} remaining</span>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p class="empty">No budgets set for {{ "%02d"|format(data.month_reference) }}/{{ data.year_reference }}.</p>
+    {% endif %}
+</section>
+{% endblock %}
