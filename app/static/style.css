@@ -271,6 +271,107 @@ h1, h2, h3, h4 { margin: 0; font-weight: 600; }
     font-weight: 500;
 }
 
+/* ===== Filter form ===== */
+.filter-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)) auto;
+    gap: var(--space-2);
+    align-items: end;
+}
+.filter-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+.filter-field label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+}
+.filter-field input,
+.filter-field select {
+    padding: 0.5rem var(--space-1);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+    background: var(--color-surface);
+    color: var(--color-text);
+}
+.filter-field input:focus,
+.filter-field select:focus {
+    outline: none;
+    border-color: var(--color-sidebar);
+}
+.filter-actions {
+    display: flex;
+    gap: var(--space-1);
+    align-items: end;
+}
+.btn {
+    padding: 0.5rem var(--space-2);
+    background: var(--color-sidebar);
+    color: #ffffff;
+    border: 1px solid var(--color-sidebar);
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.15s ease;
+    display: inline-block;
+}
+.btn:hover { opacity: 0.9; }
+.btn--ghost {
+    background: var(--color-surface);
+    color: var(--color-text);
+    border-color: var(--color-border);
+}
+.btn--ghost:hover {
+    background: var(--color-bg);
+    opacity: 1;
+}
+
+/* ===== Type badges ===== */
+.badge {
+    display: inline-block;
+    padding: 0.125rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+.badge--income {
+    background: rgba(46, 139, 87, 0.12);
+    color: var(--color-success);
+}
+.badge--expense {
+    background: rgba(229, 72, 77, 0.12);
+    color: var(--color-danger);
+}
+
+/* Signed amount coloring in transaction list */
+.num--income { color: var(--color-success); font-weight: 500; }
+.num--expense { color: var(--color-danger); font-weight: 500; }
+
+/* ===== Pagination ===== */
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--space-2);
+    margin-top: var(--space-2);
+    border-top: 1px solid var(--color-border);
+    font-size: 0.875rem;
+}
+.pagination-info { color: var(--color-text-muted); }
+.pagination-links {
+    display: flex;
+    gap: var(--space-1);
+}
+
 /* ===== Login page (matches existing login.html structure) ===== */
 .login-card {
     background: var(--color-surface);

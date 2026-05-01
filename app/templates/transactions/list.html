@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}Transactions · Finance Dashboard{% endblock %}
+{% block page_title %}Transactions{% endblock %}
+{% block page_meta %}
+<span class="period">{{ result.total_count }} transaction{% if result.total_count != 1 %}s{% endif %}</span>
+{% endblock %}
+
+{% block content %}
+<section class="panel">
+    <form class="filter-form" method="get" action="/transactions">
+        <div class="filter-field">
+            <label for="filter-category">Category</label>
+            <select id="filter-category" name="category_id">
+                <option value="">All categories</option>
+                {% for cat in categories %}
+                <option value="{{ cat.id }}"{% if filters.category_id == cat.id %} selected{% endif %}>{{ cat.name }} ({{ cat.type }})</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="filter-field">
+            <label for="filter-type">Type</label>
+            <select id="filter-type" name="type">
+                <option value="">All types</option>
+                <option value="income"{% if filters.type == "income" %} selected{% endif %}>Income</option>
+                <option value="expense"{% if filters.type == "expense" %} selected{% endif %}>Expense</option>
+            </select>
+        </div>
+        <div class="filter-field">
+            <label for="filter-from">From</label>
+            <input id="filter-from" type="date" name="date_from" value="{{ filters.date_from.isoformat() if filters.date_from else '' }}">
+        </div>
+        <div class="filter-field">
+            <label for="filter-to">To</label>
+            <input id="filter-to" type="date" name="date_to" value="{{ filters.date_to.isoformat() if filters.date_to else '' }}">
+        </div>
+        <div class="filter-actions">
+            <button type="submit" class="btn">Apply</button>
+            <a href="/transactions" class="btn btn--ghost">Reset</a>
+        </div>
+    </form>
+</section>
+
+<section class="panel">
+    {% if result.items %}
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Type</th>
+                <th class="num">Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in result.items %}
+            <tr>
+                <td>{{ item.transaction_date.strftime('%Y-%m-%d') }}</td>
+                <td>{{ item.description }}</td>
+                <td><span class="dot" style="background-color: {{ item.category_color }}"></span>{{ item.category_name }}</td>
+                <td><span class="badge badge--{{ item.category_type }}">{{ item.category_type }}</span></td>
+                <td class="num num--{{ item.category_type }}">
+                    {% if item.category_type == 'income' %}+{% else %}-{% endif %}${{ "{:,.2f}".format(item.amount) }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% if result.total_pages > 1 %}
+    <nav class="pagination">
+        <span class="pagination-info">Page {{ result.page }} of {{ result.total_pages }} · {{ result.total_count }} total</span>
+        <div class="pagination-links">
+            {% if prev_url %}<a class="btn btn--ghost" href="{{ prev_url }}">&larr; Previous</a>{% endif %}
+            {% if next_url %}<a class="btn btn--ghost" href="{{ next_url }}">Next &rarr;</a>{% endif %}
+        </div>
+    </nav>
+    {% endif %}
+
+    {% else %}
+    <p class="empty">No transactions match these filters.</p>
+    {% endif %}
+</section>
+{% endblock %}

@@ -104,3 +104,43 @@ class BudgetPageData:
     rows: List[BudgetRow]
     total_budgeted: float
     total_spent: float
+
+
+# Transactions page contracts
+
+@dataclass
+class TransactionListItem:
+    id: int
+    transaction_date: date
+    description: str
+    amount: float
+    category_id: int
+    category_name: str
+    category_color: str
+    category_type: str  # "income" | "expense"
+
+
+@dataclass
+class CategoryOption:
+    id: int
+    name: str
+    type: str
+    color: str
+
+
+@dataclass
+class TransactionListFilters:
+    category_id: int | None
+    date_from: date | None
+    date_to: date | None
+    type: str | None
+    page: int
+
+
+@dataclass
+class TransactionListResult:
+    items: List[TransactionListItem]
+    total_count: int
+    page: int
+    page_size: int
+    total_pages: int
