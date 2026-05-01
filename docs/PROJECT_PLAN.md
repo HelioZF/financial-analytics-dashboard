@@ -3,9 +3,9 @@
 > **Living document.** Update the checkboxes as work progresses. This is the source of truth for "where are we" — read it before starting any session.
 
 **Last updated:** 2026-05-01
-**Current phase:** Step 0 (pre-flight cleanup)
-**Commits done:** 0 / 13
-**Status:** Planning complete, execution pending green light
+**Current phase:** Phase 5 complete; ready for Phase 6
+**Commits done:** 2 / 13 (plus 1 docs commit `db5878b`)
+**Status:** Phase 5 milestone hit — `/overview` renders with real data, top-5 table matches SQL. Browser visual verification pending from Helio.
 
 ---
 
@@ -37,9 +37,10 @@
 
 **Goal:** clean working tree, scaffolds removed from existing service.
 
-- [ ] Strip all scaffold blocks from `app/services/overview_service.py` (SQL SHAPE, FUNCTION SHAPE, CONCEPTS, EDGE CASE blocks). Keep only working code + meaningful inline comments.
-- [ ] Confirm `app/schemas/contracts.py` has no scaffold leftovers (just imports + dataclasses).
-- [ ] Verification: `docker compose exec app python -c "from app.services.overview_service import get_overview_data; print('import OK')"` → expect `import OK`.
+- [x] Strip all scaffold blocks from `app/services/overview_service.py` (SQL SHAPE, FUNCTION SHAPE, CONCEPTS, EDGE CASE blocks). Keep only working code + meaningful inline comments. *(286 → 121 lines)*
+- [x] Confirm `app/schemas/contracts.py` has no scaffold leftovers (just imports + dataclasses).
+- [x] Local syntax check: `py -c "import ast; ast.parse(open('app/services/overview_service.py').read())"` → `syntax OK`
+- [ ] Full import verification (requires Docker running): `docker compose exec app python -c "from app.services.overview_service import get_overview_data; print('import OK')"` — *deferred to commit #1's verification gate*
 
 ---
 
@@ -54,32 +55,10 @@
 | `app/schemas/contracts.py` | Modified (imports added) |
 
 **Verification gate:**
-- [ ] Run service assertion script:
-  ```bash
-  docker compose exec app python -c "
-  import asyncio
-  from datetime import datetime
-  from app.database.connection import SessionLocal
-  from app.services.overview_service import get_overview_data
-
-  async def main():
-      async with SessionLocal() as s:
-          d = await get_overview_data(s, 1, datetime.now().month, datetime.now().year)
-          assert d.kpis.total_income > 0
-          assert d.kpis.total_expenses > 0
-          assert len(d.monthly_data) > 0
-          assert len(d.expense_breakdown) > 0
-          pct_sum = sum(c.percentage for c in d.expense_breakdown)
-          assert 99.0 < pct_sum < 101.0, f'percentages sum to {pct_sum}'
-          print('all overview service assertions passed')
-  asyncio.run(main())
-  "
-  ```
-  → expect `all overview service assertions passed`
-- [ ] All assertions pass (no AssertionError)
-- [ ] `git add` only the two files in scope (no accidental includes)
-- [ ] `git commit` with message above
-- [ ] `git push origin main`
+- [x] Service assertion script run; results: income=$5,477, expenses=$2,617, balance=$2,860, 24 monthly points, 7 expense categories, percentages sum to 100.00
+- [x] All assertions pass
+- [x] Committed as `92080cd`
+- [x] Pushed to origin/main
 
 ---
 
@@ -97,15 +76,13 @@
 | `app/main.py` | Modified: include `overview_router`, mount `StaticFiles` for `/static` |
 
 **Verification gate:**
-- [ ] `docker compose up` boots clean (no app errors)
-- [ ] `curl -i http://localhost:3200/overview` → `302 Location: /login`
-- [ ] Browser flow: login as `demo` / `demo123` → redirected to `/overview`
-- [ ] DevTools Network: `style.css` returns 200 (not 404)
-- [ ] Three KPI cards visible (Income / Expenses / Balance), all non-zero
-- [ ] Monthly bar chart shows 12 months
-- [ ] Two donut charts render with correct category legends
-- [ ] Sidebar shows all nav links (other pages 404 — expected)
-- [ ] **Data spot-check:** pick a category from donut, run SQL:
+- [x] `docker compose up` boots clean
+- [x] `curl -i http://localhost:3200/overview` → `302 Location: /login` (auth gate)
+- [x] `/static/style.css` returns 200 (StaticFiles mount works)
+- [x] Authenticated GET /overview returns 200, 9KB HTML
+- [x] Rendered HTML contains 3 KPI cards, monthlyChart canvas, incomeDonut canvas, expenseDonut canvas
+- [ ] **Browser visual check (pending Helio):** login flow, chart rendering, layout looks right
+- [x] **Data spot-check:** SQL query result matches HTML top-5 table exactly (Rent 45.85%, Food 33.44%, Transport 8.22%, Utilities 7.64%, Shopping 3.71%):
   ```bash
   docker compose exec db psql -U finance_user -d finance -c "
   SELECT c.name, ROUND(SUM(t.amount) / (SELECT SUM(t.amount) FROM transactions t JOIN categories c ON c.id=t.category_id WHERE c.type='expense' AND EXTRACT(MONTH FROM t.date)=EXTRACT(MONTH FROM NOW())) * 100, 2) AS pct
@@ -114,12 +91,11 @@
   GROUP BY c.name ORDER BY pct DESC;"
   ```
   Compare top result to donut legend's top entry. Match required.
-- [ ] **Regression:** `/login`, `/logout` still work
-- [ ] `git add` files in scope
-- [ ] `git commit` with message above
-- [ ] `git push origin main`
+- [x] **Regression:** `/login` returns 200, `/` redirects to `/login`
+- [x] Committed as `b72020e`
+- [x] Pushed to origin/main
 
-**🎯 Phase 5 milestone:** `/overview` renders with real numbers from seed data.
+**🎯 Phase 5 milestone:** ✅ `/overview` renders with real numbers from seed data.
 
 ---
 
@@ -340,8 +316,8 @@ Each commit = one full page (service + router + template). Same pattern as Phase
 
 | Phase | Commits | Status | Notes |
 |---|---|---|---|
-| Step 0 | — | ⬜ Not started | Pre-flight cleanup |
-| Phase 5 | #1, #2 | ⬜ Not started | Overview module |
+| Step 0 | — | ✅ Complete | Pre-flight cleanup — scaffolds stripped |
+| Phase 5 | #1, #2 | ✅ Complete | Overview module — `92080cd`, `b72020e` |
 | Phase 6 | #3, #4, #5 | ⬜ Not started | Expenses, Income, Budget |
 | Phase 7 | #6, #7, #8 | ⬜ Not started | Transactions + Export |
 | Phase 8 | #9–#13 | ⬜ Not started | Tests, docs, polish |
