@@ -1,3 +1,4 @@
+from datetime import date
 from typing import List
 from dataclasses import dataclass
 
@@ -44,3 +45,22 @@ class OverviewPageData:
     monthly_data: List[MonthlyTotal]
     income_breakdown: List[CategoryBreakdown]
     expense_breakdown: List[CategoryBreakdown]
+
+
+# Expenses page contracts
+
+@dataclass
+class ExpenseItem:
+    transaction_date: date
+    description: str
+    category_name: str
+    category_color: str
+    amount: float
+
+
+@dataclass
+class ExpensesPageData:
+    year_reference: int
+    monthly_totals: List[MonthlyTotal]
+    category_breakdown: List[CategoryBreakdown]
+    top_items: List[ExpenseItem]
