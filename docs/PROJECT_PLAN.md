@@ -3,9 +3,9 @@
 > **Living document.** Update the checkboxes as work progresses. This is the source of truth for "where are we" — read it before starting any session.
 
 **Last updated:** 2026-05-01
-**Current phase:** Phase 6 in progress (2 of 3 commits done)
-**Commits done:** 4 / 13 (plus 2 chore commits, 1 fix commit)
-**Status:** `/income` shipped with source donut + monthly bars + top-10 table. Browser-verified. Next: commit #5 (Budget page).
+**Current phase:** Phase 6 complete; ready for Phase 7
+**Commits done:** 5 / 13 (plus 3 chore commits, 1 fix commit)
+**Status:** All 4 dashboard pages live (`/overview`, `/expenses`, `/income`, `/budget`). Cross-page consistency verified. Next: Phase 7 — Transactions + Export.
 
 ---
 
@@ -136,19 +136,23 @@ Each commit = one full page (service + router + template). Same pattern as Phase
 ### Commit #5 — `feat(budget): add budget page with progress bars and over/under indicators`
 
 **Files:**
-- `app/services/budget_service.py` — join budgets + transactions per category for current month, compute percent-used + status flag (under/at/over)
+- `app/services/budget_service.py` — LEFT JOIN budgets + transactions; per-category percent_used + status flag (under/over)
 - `app/routers/budget_router.py`
-- `app/templates/budget/summary.html` — one row per budgeted category with progress bar; over-budget rows visually distinct
+- `app/templates/budget/summary.html` — KPI cards + progress bars per category; over-budget rows in red
+- `app/static/style.css` — budget-list, budget-row, budget-bar styles
+- `app/schemas/contracts.py` — BudgetRow, BudgetPageData
+- `app/main.py` — include budget_router
 
 **Verification gate:**
-- [ ] `/budget` returns 200 with login
-- [ ] One row per budgeted category, progress bar visible
-- [ ] Over-budget categories have distinct color (red or similar)
-- [ ] **SQL spot-check:** pick a category, verify "spent" matches `SUM(amount)` for current month
-- [ ] **Regression:** `/overview`, `/expenses`, `/income` still work
-- [ ] Commit + push
+- [x] `/budget` returns 302 → /login when unauth; 200 (9.5KB) when authed
+- [x] 8 budget rows rendered (one per seeded category)
+- [x] Over-budget categories distinct (Food and Transport in red)
+- [x] **Cross-page consistency:** Total Spent ($2,617) matches /overview Expenses KPI exactly
+- [x] **Regression:** `/overview`, `/expenses`, `/income` still 200
+- [x] Browser-verified by Helio
+- [x] Committed as `8f008ef` and pushed
 
-**🎯 Phase 6 milestone:** all four dashboard pages render with real data.
+**🎯 Phase 6 milestone:** ✅ all four dashboard pages render with real data.
 
 ---
 
@@ -315,7 +319,7 @@ Each commit = one full page (service + router + template). Same pattern as Phase
 |---|---|---|---|
 | Step 0 | — | ✅ Complete | Pre-flight cleanup — scaffolds stripped |
 | Phase 5 | #1, #2 | ✅ Complete | Overview module — `92080cd`, `b72020e` |
-| Phase 6 | #3, #4, #5 | 🟡 In progress | #3 (`0b7eab4`), #4 (`1a35395`) done; #5 Budget next |
+| Phase 6 | #3, #4, #5 | ✅ Complete | `0b7eab4`, `1a35395`, `8f008ef` |
 | Phase 7 | #6, #7, #8 | ⬜ Not started | Transactions + Export |
 | Phase 8 | #9–#13 | ⬜ Not started | Tests, docs, polish |
 | Phase 9 | — | ⬜ Not started | Retrospective artifact |
