@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% block title %}Overview · Finance Dashboard{% endblock %}
+{% block page_title %}Overview{% endblock %}
+{% block page_meta %}
+<span class="period">{{ "%02d"|format(data.kpis.month_reference) }}/{{ data.kpis.year_reference }}</span>
+{% endblock %}
+
+{% block content %}
+<section class="kpi-row">
+    <article class="kpi-card kpi-card--income">
+        <div class="kpi-label">Income</div>
+        <div class="kpi-value">${{ "{:,.2f}".format(data.kpis.total_income) }}</div>
+    </article>
+    <article class="kpi-card kpi-card--expenses">
+        <div class="kpi-label">Expenses</div>
+        <div class="kpi-value">${{ "{:,.2f}".format(data.kpis.total_expenses) }}</div>
+    </article>
+    <article class="kpi-card kpi-card--balance{% if data.kpis.total_balance < 0 %} kpi-card--negative{% endif %}">
+        <div class="kpi-label">Balance</div>
+        <div class="kpi-value">${{ "{:,.2f}".format(data.kpis.total_balance) }}</div>
+    </article>
+</section>
+
+<section class="panel">
+    <h2 class="panel-title">Monthly trend</h2>
+    <div class="chart-canvas-wrap">
+        <canvas id="monthlyChart"></canvas>
+    </div>
+</section>
+
+<section class="panel-grid">
+    <div class="panel">
+        <h2 class="panel-title">Income breakdown</h2>
+        <div class="chart-canvas-wrap">
+            <canvas id="incomeDonut"></canvas>
+        </div>
+    </div>
+    <div class="panel">
+        <h2 class="panel-title">Expense breakdown</h2>
+        <div class="chart-canvas-wrap">
+            <canvas id="expenseDonut"></canvas>
+        </div>
+    </div>
+</section>
+
+<section class="panel">
+    <h2 class="panel-title">Top expenses this month</h2>
+    {% if data.expense_breakdown %}
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th class="num">Amount</th>
+                <th class="num">% of expenses</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cat in data.expense_breakdown[:5] %}
+            <tr>
+                <td><span class="dot" style="background-color: {{ cat.color }}"></span>{{ cat.name }}</td>
+                <td class="num">${{ "{:,.2f}".format(cat.total_amount) }}</td>
+                <td class="num">{{ "%.2f"|format(cat.percentage) }}%</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="empty">No expenses recorded for this month.</p>
+    {% endif %}
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function() {
+    const monthlyData = {{ monthly_json | tojson }};
+    const incomeBreakdown = {{ income_json | tojson }};
+    const expenseBreakdown = {{ expense_json | tojson }};
+
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const incomeByMonth = Array(12).fill(0);
+    const expenseByMonth = Array(12).fill(0);
+    for (const point of monthlyData) {
+        const idx = point.month_reference - 1;
+        if (point.type === 'income') incomeByMonth[idx] = point.amount;
+        else expenseByMonth[idx] = point.amount;
+    }
+
+    const fmtMoney = (n) => '$' + n.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
+    new Chart(document.getElementById('monthlyChart'), {
+        type: 'bar',
+        data: {
+            labels: months,
+            datasets: [
+                { label: 'Income', data: incomeByMonth, backgroundColor: '#2E8B57' },
+                { label: 'Expenses', data: expenseByMonth, backgroundColor: '#E5484D' },
+            ],
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                tooltip: { callbacks: { label: (ctx) => ctx.dataset.label + ': ' + fmtMoney(ctx.parsed.y) } },
+                legend: { position: 'bottom' },
+            },
+            scales: {
+                y: { ticks: { callback: (v) => fmtMoney(v) } },
+            },
+        },
+    });
+
+    function donut(canvasId, breakdown) {
+        if (!breakdown.length) return;
+        new Chart(document.getElementById(canvasId), {
+            type: 'doughnut',
+            data: {
+                labels: breakdown.map(c => c.name),
+                datasets: [{
+                    data: breakdown.map(c => c.total_amount),
+                    backgroundColor: breakdown.map(c => c.color),
+                    borderWidth: 0,
+                }],
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: { callbacks: { label: (ctx) => ctx.label + ': ' + fmtMoney(ctx.parsed) } },
+                    legend: { position: 'bottom' },
+                },
+            },
+        });
+    }
+
+    donut('incomeDonut', incomeBreakdown);
+    donut('expenseDonut', expenseBreakdown);
+})();
+</script>
+{% endblock %}
