@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block title %}Income · Finance Dashboard{% endblock %}
+{% block page_title %}Income{% endblock %}
+{% block page_meta %}
+<span class="period">{{ data.year_reference }}</span>
+{% endblock %}
+
+{% block content %}
+<section class="panel-grid">
+    <div class="panel">
+        <h2 class="panel-title">Source breakdown (full year)</h2>
+        <div class="chart-canvas-wrap">
+            <canvas id="sourceDonut"></canvas>
+        </div>
+    </div>
+    <div class="panel">
+        <h2 class="panel-title">Monthly income</h2>
+        <div class="chart-canvas-wrap">
+            <canvas id="monthlyBars"></canvas>
+        </div>
+    </div>
+</section>
+
+<section class="panel">
+    <h2 class="panel-title">Top 10 income items</h2>
+    {% if data.top_items %}
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Source</th>
+                <th class="num">Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in data.top_items %}
+            <tr>
+                <td>{{ item.transaction_date.strftime('%Y-%m-%d') }}</td>
+                <td>{{ item.description }}</td>
+                <td><span class="dot" style="background-color: {{ item.category_color }}"></span>{{ item.category_name }}</td>
+                <td class="num">${{ "{:,.2f}".format(item.amount) }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="empty">No income recorded for {{ data.year_reference }}.</p>
+    {% endif %}
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function() {
+    const monthlyData = {{ monthly_json | tojson }};
+    const breakdown = {{ breakdown_json | tojson }};
+
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const incomeByMonth = Array(12).fill(0);
+    for (const point of monthlyData) {
+        incomeByMonth[point.month_reference - 1] = point.amount;
+    }
+
+    const fmtMoney = (n) => '$' + n.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
+    new Chart(document.getElementById('monthlyBars'), {
+        type: 'bar',
+        data: {
+            labels: months,
+            datasets: [{
+                label: 'Income',
+                data: incomeByMonth,
+                backgroundColor: '#2E8B57',
+            }],
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                tooltip: { callbacks: { label: (ctx) => fmtMoney(ctx.parsed.y) } },
+                legend: { display: false },
+            },
+            scales: {
+                y: { ticks: { callback: (v) => fmtMoney(v) } },
+            },
+        },
+    });
+
+    if (breakdown.length) {
+        new Chart(document.getElementById('sourceDonut'), {
+            type: 'doughnut',
+            data: {
+                labels: breakdown.map(c => c.name),
+                datasets: [{
+                    data: breakdown.map(c => c.total_amount),
+                    backgroundColor: breakdown.map(c => c.color),
+                    borderWidth: 0,
+                }],
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: { callbacks: { label: (ctx) => ctx.label + ': ' + fmtMoney(ctx.parsed) } },
+                    legend: { position: 'bottom' },
+                },
+            },
+        });
+    }
+})();
+</script>
+{% endblock %}

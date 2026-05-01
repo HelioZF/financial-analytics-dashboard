@@ -64,3 +64,22 @@ class ExpensesPageData:
     monthly_totals: List[MonthlyTotal]
     category_breakdown: List[CategoryBreakdown]
     top_items: List[ExpenseItem]
+
+
+# Income page contracts
+
+@dataclass
+class IncomeItem:
+    transaction_date: date
+    description: str
+    category_name: str
+    category_color: str
+    amount: float
+
+
+@dataclass
+class IncomePageData:
+    year_reference: int
+    monthly_totals: List[MonthlyTotal]
+    category_breakdown: List[CategoryBreakdown]
+    top_items: List[IncomeItem]
