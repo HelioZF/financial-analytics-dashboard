@@ -3,9 +3,9 @@
 > **Living document.** Update the checkboxes as work progresses. This is the source of truth for "where are we" — read it before starting any session.
 
 **Last updated:** 2026-05-01
-**Current phase:** Phase 6 in progress (1 of 3 commits done)
-**Commits done:** 3 / 13 (plus 2 chore commits)
-**Status:** `/expenses` shipped with donut + monthly trend + top-10 table. Browser-verified by Helio. Next: commit #4 (Income page).
+**Current phase:** Phase 6 in progress (2 of 3 commits done)
+**Commits done:** 4 / 13 (plus 2 chore commits, 1 fix commit)
+**Status:** `/income` shipped with source donut + monthly bars + top-10 table. Browser-verified. Next: commit #5 (Budget page).
 
 ---
 
@@ -122,14 +122,16 @@ Each commit = one full page (service + router + template). Same pattern as Phase
 
 ### Commit #4 — `feat(income): add income page with source breakdown and monthly bars`
 
-**Files:** mirror of #3 — `income_service.py`, `income_router.py`, `income/summary.html`.
+**Files:** mirror of #3 — `income_service.py`, `income_router.py`, `income/summary.html`, contracts.py additions, main.py wiring.
 
 **Verification gate:**
-- [ ] `/income` returns 200 with login, 302 without
-- [ ] Donut shows Salary, Freelance, Investments
-- [ ] Monthly bars show 12 months
-- [ ] **Regression:** `/overview`, `/expenses` still work
-- [ ] Commit + push
+- [x] `/income` returns 302 → /login when unauth; 200 (8.0KB) when authed
+- [x] Donut shows Salary + Freelance (Investments under threshold)
+- [x] Monthly bars render (12 months, green)
+- [x] **Regression:** `/overview`, `/expenses` still 200
+- [x] DB ↔ HTML spot-check: top income = Salary $4,000.00 (color #2E8B57)
+- [x] Browser-verified by Helio
+- [x] Committed as `1a35395` and pushed
 
 ### Commit #5 — `feat(budget): add budget page with progress bars and over/under indicators`
 
@@ -313,7 +315,7 @@ Each commit = one full page (service + router + template). Same pattern as Phase
 |---|---|---|---|
 | Step 0 | — | ✅ Complete | Pre-flight cleanup — scaffolds stripped |
 | Phase 5 | #1, #2 | ✅ Complete | Overview module — `92080cd`, `b72020e` |
-| Phase 6 | #3, #4, #5 | 🟡 In progress | #3 done (`0b7eab4`); #4 Income next |
+| Phase 6 | #3, #4, #5 | 🟡 In progress | #3 (`0b7eab4`), #4 (`1a35395`) done; #5 Budget next |
 | Phase 7 | #6, #7, #8 | ⬜ Not started | Transactions + Export |
 | Phase 8 | #9–#13 | ⬜ Not started | Tests, docs, polish |
 | Phase 9 | — | ⬜ Not started | Retrospective artifact |
