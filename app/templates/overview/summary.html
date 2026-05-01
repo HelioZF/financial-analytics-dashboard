@@ -94,8 +94,22 @@
         data: {
             labels: months,
             datasets: [
-                { label: 'Income', data: incomeByMonth, backgroundColor: '#2E8B57' },
-                { label: 'Expenses', data: expenseByMonth, backgroundColor: '#E5484D' },
+                {
+                    label: 'Income',
+                    data: incomeByMonth,
+                    backgroundColor: '#2E8B57',
+                    borderRadius: 4,
+                    categoryPercentage: 0.8,
+                    barPercentage: 0.9,
+                },
+                {
+                    label: 'Expenses',
+                    data: expenseByMonth,
+                    backgroundColor: '#E5484D',
+                    borderRadius: 4,
+                    categoryPercentage: 0.8,
+                    barPercentage: 0.9,
+                },
             ],
         },
         options: {
@@ -106,7 +120,7 @@
                 legend: { position: 'bottom' },
             },
             scales: {
-                y: { ticks: { callback: (v) => fmtMoney(v) } },
+                y: { beginAtZero: true, ticks: { callback: (v) => fmtMoney(v) } },
             },
         },
     });

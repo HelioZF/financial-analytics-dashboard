@@ -11,7 +11,10 @@
     <div class="app-shell">
         {% include "components/sidebar.html" %}
         <main class="content">
-            {% include "components/header.html" %}
+            <header class="page-header">
+                <h1 class="page-title">{% block page_title %}Dashboard{% endblock %}</h1>
+                <div class="page-meta">{% block page_meta %}{% endblock %}</div>
+            </header>
             <div class="page-body">
                 {% block content %}{% endblock %}
             </div>
