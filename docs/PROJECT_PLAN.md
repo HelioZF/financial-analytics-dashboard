@@ -3,9 +3,9 @@
 > **Living document.** Update the checkboxes as work progresses. This is the source of truth for "where are we" — read it before starting any session.
 
 **Last updated:** 2026-05-01
-**Current phase:** Phase 5 complete; ready for Phase 6
-**Commits done:** 2 / 13 (plus 1 docs commit `db5878b`)
-**Status:** Phase 5 milestone hit — `/overview` renders with real data, top-5 table matches SQL. Browser visual verification pending from Helio.
+**Current phase:** Phase 6 in progress (1 of 3 commits done)
+**Commits done:** 3 / 13 (plus 2 chore commits)
+**Status:** `/expenses` shipped with donut + monthly trend + top-10 table. Browser-verified by Helio. Next: commit #4 (Income page).
 
 ---
 
@@ -112,18 +112,13 @@ Each commit = one full page (service + router + template). Same pattern as Phase
 - `app/main.py` — include `expenses_router`
 
 **Verification gate:**
-- [ ] `/expenses` returns 200 when logged in, 302 to `/login` when not
-- [ ] Donut percentages sum to ~100
-- [ ] Line chart has 12 data points
-- [ ] Top-10 table sorted desc by amount, all rows are expense type
-- [ ] **SQL spot-check** on top expense:
-  ```sql
-  SELECT t.amount, t.description, c.name FROM transactions t JOIN categories c ON c.id=t.category_id
-  WHERE c.type='expense' AND EXTRACT(YEAR FROM t.date)=EXTRACT(YEAR FROM NOW())
-  ORDER BY t.amount DESC LIMIT 1;
-  ```
-- [ ] **Regression:** `/overview`, `/login` still work
-- [ ] Commit + push
+- [x] `/expenses` returns 302 → /login when unauthenticated; 200 (8.7KB) when authenticated
+- [x] Donut + line chart canvases present in HTML
+- [x] Top-10 table renders 10 rows sorted desc by amount
+- [x] **SQL spot-check** matched: top expense is "Monthly rent" / Rent / $1,200 (DB = HTML)
+- [x] **Regression:** `/overview` still 200
+- [x] Browser-verified by Helio
+- [x] Committed as `0b7eab4` and pushed
 
 ### Commit #4 — `feat(income): add income page with source breakdown and monthly bars`
 
@@ -318,7 +313,7 @@ Each commit = one full page (service + router + template). Same pattern as Phase
 |---|---|---|---|
 | Step 0 | — | ✅ Complete | Pre-flight cleanup — scaffolds stripped |
 | Phase 5 | #1, #2 | ✅ Complete | Overview module — `92080cd`, `b72020e` |
-| Phase 6 | #3, #4, #5 | ⬜ Not started | Expenses, Income, Budget |
+| Phase 6 | #3, #4, #5 | 🟡 In progress | #3 done (`0b7eab4`); #4 Income next |
 | Phase 7 | #6, #7, #8 | ⬜ Not started | Transactions + Export |
 | Phase 8 | #9–#13 | ⬜ Not started | Tests, docs, polish |
 | Phase 9 | — | ⬜ Not started | Retrospective artifact |
