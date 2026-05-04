@@ -2,10 +2,15 @@
 
 > **Living document.** Update the checkboxes as work progresses. This is the source of truth for "where are we" — read it before starting any session.
 
-**Last updated:** 2026-05-04
+**Last updated:** 2026-05-04 (end of day)
 **Current phase:** Phase 7 complete; ready for Phase 8 (tests, docs, polish)
 **Commits done:** 8 / 13 (plus 3 chore commits, 1 fix commit)
 **Status:** All feature work complete — 6 dashboard pages, transaction CRUD-lite (read + create), CSV export. Next: Phase 8 — pytest fixtures + service tests + docs + final polish.
+
+**Resume here tomorrow:**
+1. `docker compose up -d`
+2. Read [docs/TESTS.md](TESTS.md) for the full test inventory (history + pending pytest suite)
+3. Start commit #9 (pytest fixtures + smoke test). Defaults agreed: separate `finance_test` DB, `httpx.AsyncClient` with `ASGITransport`, 80% overall coverage target.
 
 ---
 
