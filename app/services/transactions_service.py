@@ -1,6 +1,7 @@
-"""Read-side queries for the Transactions list page."""
+"""Read- and write-side queries for the Transactions pages."""
 
 from datetime import date
+from decimal import Decimal
 
 from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -102,3 +103,43 @@ async def list_transactions(
         page_size=page_size,
         total_pages=total_pages,
     )
+
+
+async def create_transaction(
+    session: AsyncSession,
+    user_id: int,
+    *,
+    amount: Decimal,
+    category_id: int,
+    transaction_date: date,
+    description: str | None,
+) -> int:
+    """Insert a transaction and return its new id.
+
+    Pre-validates that the category exists so a bogus category_id fails with
+    a clean ValueError instead of a database FK error / 500.
+    """
+    cat_check = await session.execute(
+        text("SELECT id FROM categories WHERE id = :id"),
+        {"id": category_id},
+    )
+    if cat_check.scalar_one_or_none() is None:
+        raise ValueError("Selected category does not exist.")
+
+    result = await session.execute(
+        text("""
+            INSERT INTO transactions (user_id, category_id, amount, date, description)
+            VALUES (:user_id, :category_id, :amount, :date, :description)
+            RETURNING id
+        """),
+        {
+            "user_id": user_id,
+            "category_id": category_id,
+            "amount": amount,
+            "date": transaction_date,
+            "description": description,
+        },
+    )
+    new_id = result.scalar_one()
+    await session.commit()
+    return new_id

@@ -1,9 +1,11 @@
 from calendar import monthrange
 from datetime import date, datetime
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from urllib.parse import urlencode
 
-from fastapi import APIRouter, Depends, Request
+from fastapi import APIRouter, Depends, Form, Request
+from fastapi.responses import RedirectResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -11,6 +13,7 @@ from app.auth import require_login
 from app.database.connection import get_session
 from app.schemas.contracts import TransactionListFilters
 from app.services.transactions_service import (
+    create_transaction,
     list_categories,
     list_transactions,
 )
@@ -119,3 +122,95 @@ async def transactions_list(
             "next_url": next_url,
         },
     )
+
+
+@router.get("/transactions/new")
+async def transaction_form(
+    request: Request,
+    user_id: int = Depends(require_login),
+    session: AsyncSession = Depends(get_session),
+):
+    categories = await list_categories(session)
+    return templates.TemplateResponse(
+        request,
+        "transactions/form.html",
+        {
+            "categories": categories,
+            "form_data": {},
+            "errors": [],
+        },
+    )
+
+
+@router.post("/transactions/new")
+async def transaction_create(
+    request: Request,
+    amount: str = Form(""),
+    category_id: str = Form(""),
+    transaction_date: str = Form(""),
+    description: str = Form(""),
+    user_id: int = Depends(require_login),
+    session: AsyncSession = Depends(get_session),
+):
+    errors: list[str] = []
+    parsed_amount: Decimal | None = None
+    parsed_category: int | None = None
+    parsed_date: date | None = None
+
+    try:
+        parsed_amount = Decimal(amount)
+        if parsed_amount <= 0:
+            errors.append("Amount must be greater than zero.")
+            parsed_amount = None
+    except (InvalidOperation, ValueError):
+        errors.append("Amount must be a valid number (e.g. 12.50).")
+
+    try:
+        parsed_category = int(category_id)
+    except ValueError:
+        errors.append("Please select a category.")
+
+    try:
+        parsed_date = date.fromisoformat(transaction_date)
+    except ValueError:
+        errors.append("Date must be a valid YYYY-MM-DD value.")
+
+    desc = description.strip() or None
+
+    form_data = {
+        "amount": amount,
+        "category_id": category_id,
+        "transaction_date": transaction_date,
+        "description": description,
+    }
+
+    async def render_errors(error_list: list[str]):
+        categories = await list_categories(session)
+        return templates.TemplateResponse(
+            request,
+            "transactions/form.html",
+            {
+                "categories": categories,
+                "form_data": form_data,
+                "errors": error_list,
+            },
+            status_code=400,
+        )
+
+    if errors:
+        return await render_errors(errors)
+
+    try:
+        await create_transaction(
+            session,
+            user_id,
+            amount=parsed_amount,
+            category_id=parsed_category,
+            transaction_date=parsed_date,
+            description=desc,
+        )
+    except ValueError as exc:
+        return await render_errors([str(exc)])
+
+    # PRG pattern: 303 See Other so a reload doesn't re-POST.
+    return RedirectResponse("/transactions", status_code=303)

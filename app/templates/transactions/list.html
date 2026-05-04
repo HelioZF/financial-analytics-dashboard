@@ -4,6 +4,7 @@
 {% block page_title %}Transactions{% endblock %}
 {% block page_meta %}
 <span class="period">{{ result.total_count }} transaction{% if result.total_count != 1 %}s{% endif %}</span>
+<a href="/transactions/new" class="btn">+ New</a>
 {% endblock %}
 
 {% block content %}
