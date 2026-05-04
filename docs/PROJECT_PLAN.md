@@ -2,12 +2,10 @@
 
 > **Living document.** Update the checkboxes as work progresses. This is the source of truth for "where are we" — read it before starting any session.
 
-**Last updated:** 2026-05-01 (end of day)
-**Current phase:** Phase 7 in progress (1 of 3 commits done)
-**Commits done:** 6 / 13 (plus 3 chore commits, 1 fix commit)
-**Status:** Transactions list page (commit #6) shipped. `/transactions` filters and paginates correctly. Resume tomorrow with commit #7 — transaction creation form (POST endpoint, validation).
-
-**Resume here tomorrow:** Read this file's commit #7 section, run `docker compose up -d`, then implement the GET form + POST handler at /transactions/new. Defaults agreed: form validation handled at the boundary, redirect on success to /transactions, re-render with error on invalid input.
+**Last updated:** 2026-05-02
+**Current phase:** Phase 7 in progress (2 of 3 commits done)
+**Commits done:** 7 / 13 (plus 3 chore commits, 1 fix commit)
+**Status:** Transaction creation form (commit #7) shipped. POST validation, PRG redirect, error re-render all working. Next: commit #8 — CSV export (last commit of Phase 7, then Phase 8 tests).
 
 ---
 
@@ -322,7 +320,7 @@ Each commit = one full page (service + router + template). Same pattern as Phase
 | Step 0 | — | ✅ Complete | Pre-flight cleanup — scaffolds stripped |
 | Phase 5 | #1, #2 | ✅ Complete | Overview module — `92080cd`, `b72020e` |
 | Phase 6 | #3, #4, #5 | ✅ Complete | `0b7eab4`, `1a35395`, `8f008ef` |
-| Phase 7 | #6, #7, #8 | 🟡 In progress | #6 (`4cc0a71`) done; #7 form next | Transactions + Export |
+| Phase 7 | #6, #7, #8 | 🟡 In progress | #6 (`4cc0a71`), #7 (`88fbc8e`) done; #8 export next | Transactions + Export |
 | Phase 8 | #9–#13 | ⬜ Not started | Tests, docs, polish |
 | Phase 9 | — | ⬜ Not started | Retrospective artifact |
 
