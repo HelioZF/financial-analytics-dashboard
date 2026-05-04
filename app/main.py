@@ -11,6 +11,7 @@ from app.routers.expenses_router import router as expenses_router
 from app.routers.income_router import router as income_router
 from app.routers.budget_router import router as budget_router
 from app.routers.transactions_router import router as transactions_router
+from app.routers.export_router import router as export_router
 
 BASE_DIR = Path(__file__).resolve().parent
 
@@ -28,6 +29,7 @@ app.include_router(expenses_router)
 app.include_router(income_router)
 app.include_router(budget_router)
 app.include_router(transactions_router)
+app.include_router(export_router)
 
 
 # income
