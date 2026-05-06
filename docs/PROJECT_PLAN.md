@@ -2,15 +2,25 @@
 
 > **Living document.** Update the checkboxes as work progresses. This is the source of truth for "where are we" — read it before starting any session.
 
-**Last updated:** 2026-05-04 (end of day)
-**Current phase:** Phase 7 complete; ready for Phase 8 (tests, docs, polish)
-**Commits done:** 8 / 13 (plus 3 chore commits, 1 fix commit)
-**Status:** All feature work complete — 6 dashboard pages, transaction CRUD-lite (read + create), CSV export. Next: Phase 8 — pytest fixtures + service tests + docs + final polish.
+**Last updated:** 2026-05-05 (end of day)
+**Current phase:** Phase 8 in progress — tests complete, docs + cleanup remaining
+**Commits done:** 11 / 13 feature commits (plus chore + fix commits)
+**Pytest:** 36 / 36 passing — full green suite (smoke + service-layer + integration)
+**Status:** All feature work shipped, all tests green. Two commits to project completion.
 
-**Resume here tomorrow:**
+**Resume here next session:**
 1. `docker compose up -d`
-2. Read [docs/TESTS.md](TESTS.md) for the full test inventory (history + pending pytest suite)
-3. Start commit #9 (pytest fixtures + smoke test). Defaults agreed: separate `finance_test` DB, `httpx.AsyncClient` with `ASGITransport`, 80% overall coverage target.
+2. Run the existing suite to confirm green: `docker compose exec app pytest tests/ -v` → expect 36 passed
+3. Start **commit #12 — README + portfolio docs**. Open decisions:
+   - Screenshots: capture polished ones first OR use placeholders and fill later? (Helio's call)
+   - Mermaid architecture diagram: yes by default
+   - Optional `docs/ai/system_context.md` for the pipeline Docs Agent artifact
+4. After #12, just **commit #13 — drop pandas** (already unused since ADR #10) ships Project 5.
+
+**Key references:**
+- [docs/TESTS.md](TESTS.md) — full test inventory (35 manual + 36 pytest, all passing)
+- This file (PROJECT_PLAN.md) — phase plan + locked decisions
+- CLAUDE.md (gitignored) — agent rules + ADRs
 
 ---
 
@@ -326,7 +336,7 @@ Each commit = one full page (service + router + template). Same pattern as Phase
 | Phase 5 | #1, #2 | ✅ Complete | Overview module — `92080cd`, `b72020e` |
 | Phase 6 | #3, #4, #5 | ✅ Complete | `0b7eab4`, `1a35395`, `8f008ef` |
 | Phase 7 | #6, #7, #8 | ✅ Complete | `4cc0a71`, `88fbc8e`, `34488d3` | Transactions + Export |
-| Phase 8 | #9–#13 | ⬜ Not started | Tests, docs, polish |
+| Phase 8 | #9–#13 | 🟡 In progress | #9 (`ea4c8d9`), #10 (`b7ea11c`), #11 (`e267299`) done; #12 README next |
 | Phase 9 | — | ⬜ Not started | Retrospective artifact |
 
 **Legend:** ⬜ Not started · 🟡 In progress · ✅ Complete · 🛑 Blocked
