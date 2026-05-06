@@ -4,7 +4,7 @@
 
 **Last updated:** 2026-05-05
 **Manual verifications run:** 35 / 35 ✅
-**Pytest tests passing:** 3 / ~40 (commit #9 done — foundation + smoke)
+**Pytest tests passing:** 23 / ~40 (commits #9 + #10 done — foundation + service-layer)
 **Coverage target:** 80% on `app/` (90%+ on `app/services/`, 70%+ on `app/routers/`)
 
 ---
@@ -132,35 +132,43 @@ These are the formal automated tests to be written in commits #9–#11.
 
 *Run command:* `docker compose exec app pytest tests/ -v` → 3 passed in 0.02s
 
-### Commit #10 — Service-layer tests
+### Commit #10 — Service-layer tests — `b7ea11c`
 
-**`tests/test_overview_service.py`**
-- [ ] `test_get_overview_data_returns_correct_shape` — all 4 fields populated
-- [ ] `test_kpis_balance_equals_income_minus_expenses` — arithmetic invariant
-- [ ] `test_breakdown_percentages_sum_to_100` — window-function correctness
-- [ ] `test_monthly_data_includes_both_types` — income + expense rows present
-- [ ] `test_empty_month_returns_zero_kpis` — no-data edge case (returns 0, not None)
-- [ ] `test_unknown_user_returns_empty_lists` — security/isolation
+**Infrastructure added in conftest.py**
+- [x] `test_db` fixture: ephemeral `<DB_NAME>_test` with init.sql applied
+- [x] `test_engine` fixture: AsyncEngine bound to test DB
+- [x] `test_session` fixture: per-test savepoint-rollback session
+- [x] `seeded_db` fixture: deterministic dataset (1 user, 4 cats, 10 txns, 3 budgets)
 
-**`tests/test_expenses_service.py`**
-- [ ] `test_breakdown_sorted_desc_by_amount`
-- [ ] `test_top_items_capped_at_default_limit` (10)
-- [ ] `test_top_items_sorted_desc_by_amount_then_date`
-- [ ] `test_year_filter_excludes_other_years`
-- [ ] `test_empty_year_returns_empty_breakdown`
+**`tests/test_overview_service.py` (6 / 6)**
+- [x] `test_get_overview_data_returns_correct_shape` — all 4 fields populated
+- [x] `test_kpis_balance_equals_income_minus_expenses` — June 2026: $2,575 = $4,000 − $1,425
+- [x] `test_breakdown_percentages_sum_to_100` — window-function correctness
+- [x] `test_monthly_data_includes_both_types_for_seeded_months` — May + June × income + expense
+- [x] `test_empty_month_returns_zero_kpis` — December 2026 returns zeros
+- [x] `test_unknown_user_returns_empty_results` — user_id=99999 → empty
 
-**`tests/test_income_service.py`**
-- [ ] `test_breakdown_sorted_desc_by_amount`
-- [ ] `test_top_items_capped_at_default_limit`
-- [ ] `test_only_income_type_returned` (no expense rows leak in)
-- [ ] `test_year_filter_excludes_other_years`
+**`tests/test_expenses_service.py` (5 / 5)**
+- [x] `test_breakdown_sorted_desc_by_amount` — Rent > Food > Transport
+- [x] `test_breakdown_only_includes_expense_categories` — Salary excluded
+- [x] `test_top_items_capped_at_default_limit` — 6 expense rows in 2026
+- [x] `test_top_items_sorted_desc_by_amount` — top is $1,200 Rent
+- [x] `test_year_filter_excludes_other_years` — 2025 query returns only $50 Food
 
-**`tests/test_budget_service.py`**
-- [ ] `test_categories_without_budget_excluded`
-- [ ] `test_status_under_when_spent_below_budget`
-- [ ] `test_status_over_when_spent_above_budget`
-- [ ] `test_percent_used_calculation`
-- [ ] `test_total_budgeted_and_spent_match_row_sum`
+**`tests/test_income_service.py` (4 / 4)**
+- [x] `test_breakdown_only_includes_income_categories` — Food/Rent/Transport excluded
+- [x] `test_top_items_returns_only_income_transactions` — 2 Salary entries
+- [x] `test_top_items_sorted_desc`
+- [x] `test_year_filter_excludes_other_years` — 2025 query returns only the 2025 Salary
+
+**`tests/test_budget_service.py` (5 / 5)**
+- [x] `test_only_budgeted_categories_appear` — Salary (no budget) excluded
+- [x] `test_status_under_when_spent_below_budget` — Food $175/$200 → "under"
+- [x] `test_status_over_when_spent_above_budget` — Transport $50/$30 → "over"
+- [x] `test_percent_used_calculation` — Food 87.5%
+- [x] `test_total_budgeted_and_spent_match_row_sum` — totals: $1,430 budgeted / $1,425 spent
+
+*Run command:* `docker compose exec app pytest tests/ -v` → 23 passed in 4.31s
 
 ### Commit #11 — Integration & auth tests
 
