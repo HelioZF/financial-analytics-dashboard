@@ -34,6 +34,7 @@ from sqlalchemy.ext.asyncio import (
 )
 
 from app.config import settings
+from app.database.connection import get_session
 from app.main import app
 
 
@@ -211,4 +212,83 @@ async def async_client() -> AsyncIterator[AsyncClient]:
     """Foundation HTTP client (no DB override). Used by smoke tests."""
     transport = ASGITransport(app=app)
     async with AsyncClient(transport=transport, base_url="http://test") as client:
+        yield client
+
+
+# ---------- Integration-test fixtures (truncate-based isolation) ----------
+# Service-layer tests use test_session+seeded_db with savepoint rollback.
+# Integration tests can't use that pattern because the FastAPI app opens
+# its own session per request — different from the test's session — so
+# savepoint changes wouldn't be visible to the request handler. Instead
+# we TRUNCATE all tables before each integration test, override the app's
+# get_session to use the test engine, and let request handlers commit
+# normally. The next test's TRUNCATE wipes the slate.
+
+@pytest_asyncio.fixture
+async def app_with_test_db(test_engine):
+    """Truncate all tables, override the app's get_session to use the test
+    engine. Yields a SessionLocal so tests can seed/inspect.
+
+    Truncates on BOTH setup and teardown so service-layer tests (which use
+    test_session/seeded_db with savepoint rollback) see a clean DB after
+    any integration test that committed data.
+    """
+    SessionLocal = async_sessionmaker(test_engine, expire_on_commit=False)
+    truncate_sql = text(
+        "TRUNCATE users, transactions, budgets, categories "
+        "RESTART IDENTITY CASCADE"
+    )
+
+    async with SessionLocal() as session:
+        await session.execute(truncate_sql)
+        await session.commit()
+
+    async def override_get_session():
+        async with SessionLocal() as session:
+            yield session
+
+    app.dependency_overrides[get_session] = override_get_session
+    yield SessionLocal
+    app.dependency_overrides.clear()
+
+    async with SessionLocal() as session:
+        await session.execute(truncate_sql)
+        await session.commit()
+
+
+@pytest_asyncio.fixture
+async def unauthed_client(app_with_test_db) -> AsyncIterator[AsyncClient]:
+    transport = ASGITransport(app=app)
+    async with AsyncClient(transport=transport, base_url="http://test") as client:
+        yield client
+
+
+@pytest_asyncio.fixture
+async def demo_user_in_db(app_with_test_db):
+    """Insert a demo user with password 'testpass' and return SessionLocal."""
+    SessionLocal = app_with_test_db
+    pwd = bcrypt.hashpw(b"testpass", bcrypt.gensalt()).decode("utf-8")
+    async with SessionLocal() as session:
+        await session.execute(
+            text(
+                "INSERT INTO users (username, display_name, password_hash) "
+                "VALUES (:u, :d, :p)"
+            ),
+            {"u": "demo", "d": "Demo User", "p": pwd},
+        )
+        await session.commit()
+    return SessionLocal
+
+
+@pytest_asyncio.fixture
+async def authed_client(demo_user_in_db) -> AsyncIterator[AsyncClient]:
+    """HTTP client with a valid session cookie for demo / testpass."""
+    transport = ASGITransport(app=app)
+    async with AsyncClient(transport=transport, base_url="http://test") as client:
+        response = await client.post(
+            "/login",
+            data={"username": "demo", "password": "testpass"},
+            follow_redirects=False,
+        )
+        assert response.status_code == 302, "fixture login failed"
         yield client
