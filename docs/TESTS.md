@@ -4,7 +4,7 @@
 
 **Last updated:** 2026-05-05
 **Manual verifications run:** 35 / 35 ✅
-**Pytest tests passing:** 23 / ~40 (commits #9 + #10 done — foundation + service-layer)
+**Pytest tests passing:** 36 / 36 (commits #9 + #10 + #11 done — full suite green)
 **Coverage target:** 80% on `app/` (90%+ on `app/services/`, 70%+ on `app/routers/`)
 
 ---
@@ -170,33 +170,38 @@ These are the formal automated tests to be written in commits #9–#11.
 
 *Run command:* `docker compose exec app pytest tests/ -v` → 23 passed in 4.31s
 
-### Commit #11 — Integration & auth tests
+### Commit #11 — Integration & auth tests — `e267299`
 
-**`tests/test_transactions.py`**
-- [ ] `test_list_transactions_no_filters_returns_all`
-- [ ] `test_list_transactions_filter_by_category`
-- [ ] `test_list_transactions_filter_by_type`
-- [ ] `test_list_transactions_filter_by_date_range`
-- [ ] `test_list_transactions_pagination_offset_correct`
-- [ ] `test_list_transactions_total_count_ignores_limit`
-- [ ] `test_create_transaction_valid_input_inserts_row`
-- [ ] `test_create_transaction_bogus_category_raises_value_error`
-- [ ] `test_post_negative_amount_returns_400_with_form`
-- [ ] `test_post_valid_returns_303_to_list`
+**Infrastructure added in conftest.py**
+- [x] `app_with_test_db`: TRUNCATE on setup AND teardown, override `get_session`
+- [x] `unauthed_client`: ASGI client with no login
+- [x] `demo_user_in_db`: seeds demo/testpass
+- [x] `authed_client`: logged-in cookie-bearing client
 
-**`tests/test_export.py`**
-- [ ] `test_export_returns_csv_content_type`
-- [ ] `test_export_includes_utf8_bom`
-- [ ] `test_export_header_row_correct`
-- [ ] `test_export_row_count_matches_db`
-- [ ] `test_export_quoting_handles_commas_in_description`
+**`tests/test_auth.py` (5 / 5)**
+- [x] `test_login_with_valid_credentials_sets_cookie` — 302 / + cookie
+- [x] `test_login_with_wrong_password_redirects_with_error` — 302 /login?error=invalid
+- [x] `test_login_with_unknown_user_redirects_with_error`
+- [x] `test_protected_route_without_session_redirects_to_login` — /overview → /login
+- [x] `test_logout_clears_session` — subsequent /overview redirects again
 
-**`tests/test_auth.py`**
-- [ ] `test_login_with_valid_credentials_sets_cookie`
-- [ ] `test_login_with_wrong_password_redirects_with_error`
-- [ ] `test_login_with_unknown_user_redirects_with_error`
-- [ ] `test_protected_route_without_session_redirects_to_login`
-- [ ] `test_logout_clears_session`
+**`tests/test_transactions_service.py` (2 / 2)**
+- [x] `test_create_transaction_with_valid_input_inserts_row` — returns int id, row visible
+- [x] `test_create_transaction_with_bogus_category_raises_value_error`
+
+**`tests/test_transactions_integration.py` (3 / 3)**
+- [x] `test_post_negative_amount_returns_400_with_form_error` — error message in HTML
+- [x] `test_post_valid_creates_row_and_redirects` — 303 + DB row asserted
+- [x] `test_get_transactions_list_renders` — empty-state copy
+
+**`tests/test_export.py` (3 / 3)**
+- [x] `test_export_returns_csv_content_type` — text/csv + attachment
+- [x] `test_export_includes_utf8_bom` — first 3 bytes = `EF BB BF`
+- [x] `test_export_row_count_matches_db` — header + 3 data rows
+
+*Run command:* `docker compose exec app pytest tests/ -v` → 36 passed in 8.85s
+
+**Lesson captured:** When mixing isolation strategies (savepoint vs truncate) in the same suite, the truncate-pattern fixture must clean up on BOTH setup and teardown — otherwise committed state leaks into savepoint-pattern tests that follow.
 
 ---
 
