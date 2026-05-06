@@ -2,9 +2,9 @@
 
 > Living document. Mark `[x]` as tests pass; add a brief note with the result.
 
-**Last updated:** 2026-05-04
+**Last updated:** 2026-05-05
 **Manual verifications run:** 35 / 35 ✅
-**Pytest tests planned:** 0 / ~40 (Phase 8 — not started)
+**Pytest tests passing:** 3 / ~40 (commit #9 done — foundation + smoke)
 **Coverage target:** 80% on `app/` (90%+ on `app/services/`, 70%+ on `app/routers/`)
 
 ---
@@ -116,19 +116,21 @@ These are the curl, SQL, and browser checks run during implementation. Each one 
 
 These are the formal automated tests to be written in commits #9–#11.
 
-### Commit #9 — Fixtures + smoke (foundation)
+### Commit #9 — Fixtures + smoke (foundation) — `ea4c8d9`
 
 **`tests/conftest.py` — fixtures**
-- [ ] `test_db` fixture: ephemeral test database with `init.sql` applied
-- [ ] `test_session` fixture: AsyncSession bound to test_db
-- [ ] `seeded_db` fixture: minimal known data (1 user, ~3 categories, ~10 transactions)
-- [ ] `async_client` fixture: `httpx.AsyncClient` with `ASGITransport`
-- [ ] `authenticated_client` fixture: client with session cookie pre-set
+- [x] `async_client` fixture: `httpx.AsyncClient` with `ASGITransport`
+- [ ] `test_db` fixture: ephemeral test database with `init.sql` applied *(deferred to #10)*
+- [ ] `test_session` fixture: AsyncSession bound to test_db *(deferred to #10)*
+- [ ] `seeded_db` fixture: minimal known data *(deferred to #10)*
+- [ ] `authenticated_client` fixture: client with session cookie pre-set *(deferred to #10)*
 
 **`tests/test_smoke.py`**
-- [ ] `tests/test_smoke.py::test_app_starts` — FastAPI lifespan completes
-- [ ] `tests/test_smoke.py::test_login_page_renders` — GET /login → 200
-- [ ] `tests/test_smoke.py::test_health_endpoint` — GET /health → 200, `{"status": "ok"}`
+- [x] `tests/test_smoke.py::test_login_page_renders` — GET /login → 200, has username/password fields
+- [x] `tests/test_smoke.py::test_health_endpoint` — GET /health → 200, `{"status": "ok"}`
+- [x] `tests/test_smoke.py::test_root_redirects_to_login_when_unauthenticated` — GET / → 302 /login
+
+*Run command:* `docker compose exec app pytest tests/ -v` → 3 passed in 0.02s
 
 ### Commit #10 — Service-layer tests
 
