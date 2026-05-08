@@ -1,0 +1,638 @@
+﻿id,date,amount,category,type,description
+637,2026-12-28,44.00,Shopping,expense,Shopping
+618,2026-12-28,21.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+601,2026-12-28,56.00,Food,expense,Grocery/restaurant
+628,2026-12-27,48.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+596,2026-12-27,27.00,Food,expense,Grocery/restaurant
+610,2026-12-26,75.00,Food,expense,Grocery/restaurant
+625,2026-12-25,38.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+624,2026-12-25,38.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+629,2026-12-24,41.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+616,2026-12-24,55.00,Food,expense,Grocery/restaurant
+614,2026-12-24,79.00,Food,expense,Grocery/restaurant
+584,2026-12-23,53.00,Food,expense,Grocery/restaurant
+611,2026-12-22,32.00,Food,expense,Grocery/restaurant
+612,2026-12-21,20.00,Food,expense,Grocery/restaurant
+585,2026-12-21,79.00,Food,expense,Grocery/restaurant
+627,2026-12-20,8.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+580,2026-12-20,256.00,Investments,income,Investment returns
+592,2026-12-18,60.00,Food,expense,Grocery/restaurant
+591,2026-12-18,43.00,Food,expense,Grocery/restaurant
+619,2026-12-16,44.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+606,2026-12-16,61.00,Food,expense,Grocery/restaurant
+636,2026-12-14,54.00,Health,expense,"Healthcare (doctor, pharmacy)"
+630,2026-12-14,34.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+604,2026-12-14,61.00,Food,expense,Grocery/restaurant
+587,2026-12-14,67.00,Food,expense,Grocery/restaurant
+633,2026-12-13,50.00,Utilities,expense,Utilities
+621,2026-12-13,36.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+599,2026-12-13,74.00,Food,expense,Grocery/restaurant
+588,2026-12-13,60.00,Food,expense,Grocery/restaurant
+608,2026-12-12,63.00,Food,expense,Grocery/restaurant
+613,2026-12-10,17.00,Food,expense,Grocery/restaurant
+603,2026-12-10,79.00,Food,expense,Grocery/restaurant
+631,2026-12-09,50.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+626,2026-12-09,33.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+589,2026-12-09,46.00,Food,expense,Grocery/restaurant
+583,2026-12-09,54.00,Food,expense,Grocery/restaurant
+632,2026-12-08,100.00,Utilities,expense,Utilities
+623,2026-12-08,36.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+634,2026-12-07,50.00,Utilities,expense,Utilities
+620,2026-12-07,29.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+602,2026-12-07,36.00,Food,expense,Grocery/restaurant
+598,2026-12-07,53.00,Food,expense,Grocery/restaurant
+617,2026-12-06,31.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+609,2026-12-06,50.00,Food,expense,Grocery/restaurant
+607,2026-12-06,50.00,Food,expense,Grocery/restaurant
+590,2026-12-06,56.00,Food,expense,Grocery/restaurant
+605,2026-12-05,19.00,Food,expense,Grocery/restaurant
+594,2026-12-05,80.00,Food,expense,Grocery/restaurant
+593,2026-12-05,72.00,Food,expense,Grocery/restaurant
+582,2026-12-05,30.00,Food,expense,Grocery/restaurant
+581,2026-12-05,1200.00,Rent,expense,Monthly rent
+635,2026-12-04,50.00,Entertainment,expense,Entertainment
+622,2026-12-04,32.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+600,2026-12-03,27.00,Food,expense,Grocery/restaurant
+595,2026-12-03,51.00,Food,expense,Grocery/restaurant
+586,2026-12-03,54.00,Food,expense,Grocery/restaurant
+615,2026-12-02,15.00,Food,expense,Grocery/restaurant
+597,2026-12-01,67.00,Food,expense,Grocery/restaurant
+579,2026-12-01,4000.00,Salary,income,Monthly salary
+567,2026-11-28,46.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+557,2026-11-28,16.00,Food,expense,Grocery/restaurant
+577,2026-11-27,50.00,Health,expense,"Healthcare (doctor, pharmacy)"
+571,2026-11-27,32.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+573,2026-11-25,44.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+560,2026-11-25,65.00,Food,expense,Grocery/restaurant
+542,2026-11-25,66.00,Food,expense,Grocery/restaurant
+547,2026-11-21,19.00,Food,expense,Grocery/restaurant
+562,2026-11-19,14.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+559,2026-11-19,20.00,Food,expense,Grocery/restaurant
+555,2026-11-19,29.00,Food,expense,Grocery/restaurant
+540,2026-11-19,18.00,Food,expense,Grocery/restaurant
+563,2026-11-18,13.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+556,2026-11-16,46.00,Food,expense,Grocery/restaurant
+539,2026-11-16,50.00,Food,expense,Grocery/restaurant
+578,2026-11-15,93.00,Shopping,expense,Shopping
+561,2026-11-15,14.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+553,2026-11-15,45.00,Food,expense,Grocery/restaurant
+538,2026-11-15,53.00,Food,expense,Grocery/restaurant
+566,2026-11-14,13.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+550,2026-11-14,31.00,Food,expense,Grocery/restaurant
+576,2026-11-13,41.00,Entertainment,expense,Entertainment
+558,2026-11-13,43.00,Food,expense,Grocery/restaurant
+548,2026-11-13,64.00,Food,expense,Grocery/restaurant
+546,2026-11-13,18.00,Food,expense,Grocery/restaurant
+568,2026-11-12,48.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+543,2026-11-11,36.00,Food,expense,Grocery/restaurant
+537,2026-11-11,75.00,Food,expense,Grocery/restaurant
+545,2026-11-10,75.00,Food,expense,Grocery/restaurant
+574,2026-11-09,100.00,Utilities,expense,Utilities
+565,2026-11-09,12.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+541,2026-11-09,73.00,Food,expense,Grocery/restaurant
+570,2026-11-07,42.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+554,2026-11-07,37.00,Food,expense,Grocery/restaurant
+551,2026-11-07,79.00,Food,expense,Grocery/restaurant
+572,2026-11-05,32.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+549,2026-11-05,63.00,Food,expense,Grocery/restaurant
+536,2026-11-05,1200.00,Rent,expense,Monthly rent
+575,2026-11-03,50.00,Utilities,expense,Utilities
+564,2026-11-03,27.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+552,2026-11-03,21.00,Food,expense,Grocery/restaurant
+544,2026-11-02,36.00,Food,expense,Grocery/restaurant
+569,2026-11-01,26.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+535,2026-11-01,4000.00,Salary,income,Monthly salary
+516,2026-10-28,18.00,Food,expense,Grocery/restaurant
+505,2026-10-28,66.00,Food,expense,Grocery/restaurant
+496,2026-10-28,43.00,Food,expense,Grocery/restaurant
+490,2026-10-28,22.00,Food,expense,Grocery/restaurant
+510,2026-10-27,21.00,Food,expense,Grocery/restaurant
+524,2026-10-26,30.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+522,2026-10-26,37.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+484,2026-10-26,26.00,Food,expense,Grocery/restaurant
+534,2026-10-24,77.00,Shopping,expense,Shopping
+509,2026-10-24,79.00,Food,expense,Grocery/restaurant
+504,2026-10-24,26.00,Food,expense,Grocery/restaurant
+526,2026-10-23,16.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+486,2026-10-23,24.00,Food,expense,Grocery/restaurant
+497,2026-10-22,76.00,Food,expense,Grocery/restaurant
+492,2026-10-22,66.00,Food,expense,Grocery/restaurant
+531,2026-10-21,50.00,Utilities,expense,Utilities
+482,2026-10-21,73.00,Food,expense,Grocery/restaurant
+529,2026-10-20,17.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+489,2026-10-19,31.00,Food,expense,Grocery/restaurant
+530,2026-10-18,100.00,Utilities,expense,Utilities
+518,2026-10-18,37.00,Food,expense,Grocery/restaurant
+501,2026-10-17,16.00,Food,expense,Grocery/restaurant
+525,2026-10-14,46.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+513,2026-10-14,69.00,Food,expense,Grocery/restaurant
+521,2026-10-13,78.00,Food,expense,Grocery/restaurant
+498,2026-10-13,65.00,Food,expense,Grocery/restaurant
+487,2026-10-13,50.00,Food,expense,Grocery/restaurant
+528,2026-10-12,40.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+517,2026-10-12,64.00,Food,expense,Grocery/restaurant
+483,2026-10-12,65.00,Food,expense,Grocery/restaurant
+523,2026-10-11,49.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+519,2026-10-11,33.00,Food,expense,Grocery/restaurant
+514,2026-10-11,73.00,Food,expense,Grocery/restaurant
+511,2026-10-10,28.00,Food,expense,Grocery/restaurant
+502,2026-10-10,34.00,Food,expense,Grocery/restaurant
+488,2026-10-10,31.00,Food,expense,Grocery/restaurant
+512,2026-10-09,58.00,Food,expense,Grocery/restaurant
+503,2026-10-09,21.00,Food,expense,Grocery/restaurant
+506,2026-10-08,76.00,Food,expense,Grocery/restaurant
+493,2026-10-08,74.00,Food,expense,Grocery/restaurant
+532,2026-10-07,33.00,Entertainment,expense,Entertainment
+491,2026-10-05,55.00,Food,expense,Grocery/restaurant
+481,2026-10-05,1200.00,Rent,expense,Monthly rent
+527,2026-10-04,45.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+520,2026-10-04,63.00,Food,expense,Grocery/restaurant
+495,2026-10-04,74.00,Food,expense,Grocery/restaurant
+533,2026-10-03,60.00,Health,expense,"Healthcare (doctor, pharmacy)"
+515,2026-10-03,62.00,Food,expense,Grocery/restaurant
+508,2026-10-03,17.00,Food,expense,Grocery/restaurant
+500,2026-10-03,53.00,Food,expense,Grocery/restaurant
+494,2026-10-03,16.00,Food,expense,Grocery/restaurant
+507,2026-10-01,40.00,Food,expense,Grocery/restaurant
+499,2026-10-01,53.00,Food,expense,Grocery/restaurant
+485,2026-10-01,63.00,Food,expense,Grocery/restaurant
+480,2026-10-01,4000.00,Salary,income,Monthly salary
+479,2026-09-28,55.00,Shopping,expense,Shopping
+477,2026-09-28,42.00,Entertainment,expense,Entertainment
+469,2026-09-27,20.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+465,2026-09-27,14.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+445,2026-09-27,79.00,Food,expense,Grocery/restaurant
+468,2026-09-26,49.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+433,2026-09-26,15.00,Food,expense,Grocery/restaurant
+454,2026-09-25,36.00,Food,expense,Grocery/restaurant
+441,2026-09-25,67.00,Food,expense,Grocery/restaurant
+446,2026-09-24,45.00,Food,expense,Grocery/restaurant
+466,2026-09-23,9.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+457,2026-09-23,50.00,Food,expense,Grocery/restaurant
+455,2026-09-22,69.00,Food,expense,Grocery/restaurant
+467,2026-09-21,25.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+435,2026-09-21,51.00,Food,expense,Grocery/restaurant
+447,2026-09-20,17.00,Food,expense,Grocery/restaurant
+434,2026-09-20,49.00,Food,expense,Grocery/restaurant
+431,2026-09-20,205.00,Investments,income,Investment returns
+478,2026-09-19,54.00,Health,expense,"Healthcare (doctor, pharmacy)"
+470,2026-09-18,31.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+461,2026-09-18,34.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+459,2026-09-18,52.00,Food,expense,Grocery/restaurant
+453,2026-09-18,50.00,Food,expense,Grocery/restaurant
+476,2026-09-17,50.00,Utilities,expense,Utilities
+475,2026-09-17,50.00,Utilities,expense,Utilities
+439,2026-09-17,40.00,Food,expense,Grocery/restaurant
+443,2026-09-16,70.00,Food,expense,Grocery/restaurant
+442,2026-09-16,72.00,Food,expense,Grocery/restaurant
+464,2026-09-15,14.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+463,2026-09-14,28.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+437,2026-09-11,77.00,Food,expense,Grocery/restaurant
+449,2026-09-10,38.00,Food,expense,Grocery/restaurant
+438,2026-09-10,49.00,Food,expense,Grocery/restaurant
+471,2026-09-09,29.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+460,2026-09-08,34.00,Food,expense,Grocery/restaurant
+448,2026-09-08,44.00,Food,expense,Grocery/restaurant
+436,2026-09-08,69.00,Food,expense,Grocery/restaurant
+450,2026-09-07,24.00,Food,expense,Grocery/restaurant
+474,2026-09-06,100.00,Utilities,expense,Utilities
+472,2026-09-06,18.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+462,2026-09-05,34.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+456,2026-09-05,36.00,Food,expense,Grocery/restaurant
+451,2026-09-05,45.00,Food,expense,Grocery/restaurant
+432,2026-09-05,1200.00,Rent,expense,Monthly rent
+473,2026-09-04,22.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+440,2026-09-04,62.00,Food,expense,Grocery/restaurant
+458,2026-09-03,78.00,Food,expense,Grocery/restaurant
+444,2026-09-03,74.00,Food,expense,Grocery/restaurant
+452,2026-09-01,56.00,Food,expense,Grocery/restaurant
+430,2026-09-01,4000.00,Salary,income,Monthly salary
+415,2026-08-28,31.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+377,2026-08-28,16.00,Food,expense,Grocery/restaurant
+429,2026-08-27,21.00,Education,expense,"Education (books, courses)"
+428,2026-08-27,400.00,Shopping,expense,Shopping
+414,2026-08-27,48.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+393,2026-08-27,66.00,Food,expense,Grocery/restaurant
+390,2026-08-26,39.00,Food,expense,Grocery/restaurant
+385,2026-08-26,34.00,Food,expense,Grocery/restaurant
+424,2026-08-25,100.00,Utilities,expense,Utilities
+398,2026-08-25,71.00,Food,expense,Grocery/restaurant
+387,2026-08-25,20.00,Food,expense,Grocery/restaurant
+374,2026-08-25,33.00,Food,expense,Grocery/restaurant
+389,2026-08-24,41.00,Food,expense,Grocery/restaurant
+404,2026-08-23,43.00,Food,expense,Grocery/restaurant
+382,2026-08-23,16.00,Food,expense,Grocery/restaurant
+397,2026-08-22,20.00,Food,expense,Grocery/restaurant
+396,2026-08-22,44.00,Food,expense,Grocery/restaurant
+421,2026-08-21,47.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+402,2026-08-20,67.00,Food,expense,Grocery/restaurant
+400,2026-08-19,28.00,Food,expense,Grocery/restaurant
+427,2026-08-18,62.00,Health,expense,"Healthcare (doctor, pharmacy)"
+413,2026-08-18,14.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+395,2026-08-17,56.00,Food,expense,Grocery/restaurant
+379,2026-08-17,43.00,Food,expense,Grocery/restaurant
+417,2026-08-16,29.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+403,2026-08-16,66.00,Food,expense,Grocery/restaurant
+392,2026-08-16,25.00,Food,expense,Grocery/restaurant
+412,2026-08-14,49.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+419,2026-08-13,24.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+411,2026-08-13,8.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+408,2026-08-13,20.00,Food,expense,Grocery/restaurant
+383,2026-08-13,71.00,Food,expense,Grocery/restaurant
+380,2026-08-13,62.00,Food,expense,Grocery/restaurant
+422,2026-08-12,41.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+410,2026-08-12,29.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+409,2026-08-12,41.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+399,2026-08-12,72.00,Food,expense,Grocery/restaurant
+407,2026-08-11,36.00,Food,expense,Grocery/restaurant
+405,2026-08-11,46.00,Food,expense,Grocery/restaurant
+391,2026-08-11,78.00,Food,expense,Grocery/restaurant
+388,2026-08-11,28.00,Food,expense,Grocery/restaurant
+425,2026-08-09,50.00,Utilities,expense,Utilities
+406,2026-08-09,55.00,Food,expense,Grocery/restaurant
+426,2026-08-08,39.00,Entertainment,expense,Entertainment
+423,2026-08-08,41.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+376,2026-08-08,28.00,Food,expense,Grocery/restaurant
+386,2026-08-06,59.00,Food,expense,Grocery/restaurant
+420,2026-08-05,23.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+373,2026-08-05,1200.00,Rent,expense,Monthly rent
+394,2026-08-04,28.00,Food,expense,Grocery/restaurant
+381,2026-08-04,21.00,Food,expense,Grocery/restaurant
+418,2026-08-03,7.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+401,2026-08-03,25.00,Food,expense,Grocery/restaurant
+384,2026-08-03,74.00,Food,expense,Grocery/restaurant
+375,2026-08-03,62.00,Food,expense,Grocery/restaurant
+416,2026-08-02,49.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+378,2026-08-02,47.00,Food,expense,Grocery/restaurant
+372,2026-08-01,4000.00,Salary,income,Monthly salary
+352,2026-07-27,66.00,Food,expense,Grocery/restaurant
+347,2026-07-26,45.00,Food,expense,Grocery/restaurant
+337,2026-07-26,44.00,Food,expense,Grocery/restaurant
+361,2026-07-25,14.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+359,2026-07-25,16.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+335,2026-07-25,61.00,Food,expense,Grocery/restaurant
+367,2026-07-24,100.00,Utilities,expense,Utilities
+328,2026-07-24,58.00,Food,expense,Grocery/restaurant
+325,2026-07-23,45.00,Food,expense,Grocery/restaurant
+368,2026-07-22,50.00,Utilities,expense,Utilities
+322,2026-07-22,32.00,Food,expense,Grocery/restaurant
+369,2026-07-21,174.00,Entertainment,expense,Entertainment
+342,2026-07-21,32.00,Food,expense,Grocery/restaurant
+341,2026-07-21,42.00,Food,expense,Grocery/restaurant
+329,2026-07-21,22.00,Food,expense,Grocery/restaurant
+345,2026-07-20,65.00,Food,expense,Grocery/restaurant
+362,2026-07-19,33.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+339,2026-07-19,34.00,Food,expense,Grocery/restaurant
+330,2026-07-19,39.00,Food,expense,Grocery/restaurant
+363,2026-07-18,26.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+331,2026-07-18,68.00,Food,expense,Grocery/restaurant
+357,2026-07-17,58.00,Food,expense,Grocery/restaurant
+364,2026-07-16,30.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+358,2026-07-16,72.00,Food,expense,Grocery/restaurant
+354,2026-07-16,37.00,Food,expense,Grocery/restaurant
+343,2026-07-16,38.00,Food,expense,Grocery/restaurant
+353,2026-07-15,74.00,Food,expense,Grocery/restaurant
+336,2026-07-15,26.00,Food,expense,Grocery/restaurant
+356,2026-07-14,57.00,Food,expense,Grocery/restaurant
+344,2026-07-14,40.00,Food,expense,Grocery/restaurant
+332,2026-07-14,25.00,Food,expense,Grocery/restaurant
+350,2026-07-13,30.00,Food,expense,Grocery/restaurant
+360,2026-07-12,26.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+349,2026-07-12,53.00,Food,expense,Grocery/restaurant
+324,2026-07-12,43.00,Food,expense,Grocery/restaurant
+323,2026-07-12,46.00,Food,expense,Grocery/restaurant
+366,2026-07-11,6.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+326,2026-07-11,17.00,Food,expense,Grocery/restaurant
+365,2026-07-10,37.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+334,2026-07-10,42.00,Food,expense,Grocery/restaurant
+346,2026-07-09,31.00,Food,expense,Grocery/restaurant
+327,2026-07-08,59.00,Food,expense,Grocery/restaurant
+355,2026-07-07,61.00,Food,expense,Grocery/restaurant
+333,2026-07-07,54.00,Food,expense,Grocery/restaurant
+320,2026-07-06,61.00,Food,expense,Grocery/restaurant
+351,2026-07-05,41.00,Food,expense,Grocery/restaurant
+319,2026-07-05,1200.00,Rent,expense,Monthly rent
+340,2026-07-04,44.00,Food,expense,Grocery/restaurant
+338,2026-07-04,76.00,Food,expense,Grocery/restaurant
+371,2026-07-03,30.00,Shopping,expense,Shopping
+370,2026-07-03,37.00,Health,expense,"Healthcare (doctor, pharmacy)"
+348,2026-07-02,68.00,Food,expense,Grocery/restaurant
+321,2026-07-01,45.00,Food,expense,Grocery/restaurant
+318,2026-07-01,4000.00,Salary,income,Monthly salary
+317,2026-06-28,95.00,Shopping,expense,Shopping
+306,2026-06-28,36.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+296,2026-06-28,15.00,Food,expense,Grocery/restaurant
+283,2026-06-28,80.00,Food,expense,Grocery/restaurant
+281,2026-06-28,18.00,Food,expense,Grocery/restaurant
+268,2026-06-28,28.00,Food,expense,Grocery/restaurant
+301,2026-06-27,19.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+261,2026-06-26,71.00,Food,expense,Grocery/restaurant
+286,2026-06-25,33.00,Food,expense,Grocery/restaurant
+284,2026-06-25,39.00,Food,expense,Grocery/restaurant
+282,2026-06-24,41.00,Food,expense,Grocery/restaurant
+267,2026-06-24,33.00,Food,expense,Grocery/restaurant
+280,2026-06-23,35.00,Food,expense,Grocery/restaurant
+308,2026-06-22,38.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+311,2026-06-21,33.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+291,2026-06-21,55.00,Food,expense,Grocery/restaurant
+288,2026-06-21,36.00,Food,expense,Grocery/restaurant
+316,2026-06-20,73.00,Health,expense,"Healthcare (doctor, pharmacy)"
+303,2026-06-20,42.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+275,2026-06-20,68.00,Food,expense,Grocery/restaurant
+259,2026-06-20,261.00,Investments,income,Investment returns
+307,2026-06-19,38.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+292,2026-06-19,26.00,Food,expense,Grocery/restaurant
+278,2026-06-18,44.00,Food,expense,Grocery/restaurant
+289,2026-06-17,52.00,Food,expense,Grocery/restaurant
+305,2026-06-16,33.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+295,2026-06-16,27.00,Food,expense,Grocery/restaurant
+274,2026-06-16,59.00,Food,expense,Grocery/restaurant
+302,2026-06-15,45.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+285,2026-06-15,22.00,Food,expense,Grocery/restaurant
+273,2026-06-15,44.00,Food,expense,Grocery/restaurant
+271,2026-06-15,30.00,Food,expense,Grocery/restaurant
+264,2026-06-15,73.00,Food,expense,Grocery/restaurant
+315,2026-06-12,36.00,Entertainment,expense,Entertainment
+300,2026-06-12,9.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+294,2026-06-12,64.00,Food,expense,Grocery/restaurant
+270,2026-06-12,39.00,Food,expense,Grocery/restaurant
+276,2026-06-11,45.00,Food,expense,Grocery/restaurant
+272,2026-06-11,69.00,Food,expense,Grocery/restaurant
+265,2026-06-11,51.00,Food,expense,Grocery/restaurant
+310,2026-06-09,43.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+269,2026-06-09,54.00,Food,expense,Grocery/restaurant
+298,2026-06-08,17.00,Food,expense,Grocery/restaurant
+277,2026-06-07,37.00,Food,expense,Grocery/restaurant
+266,2026-06-07,66.00,Food,expense,Grocery/restaurant
+312,2026-06-06,100.00,Utilities,expense,Utilities
+313,2026-06-05,50.00,Utilities,expense,Utilities
+299,2026-06-05,44.00,Food,expense,Grocery/restaurant
+287,2026-06-05,76.00,Food,expense,Grocery/restaurant
+279,2026-06-05,51.00,Food,expense,Grocery/restaurant
+260,2026-06-05,1200.00,Rent,expense,Monthly rent
+309,2026-06-04,31.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+290,2026-06-04,70.00,Food,expense,Grocery/restaurant
+304,2026-06-03,36.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+263,2026-06-03,62.00,Food,expense,Grocery/restaurant
+293,2026-06-02,78.00,Food,expense,Grocery/restaurant
+262,2026-06-02,16.00,Food,expense,Grocery/restaurant
+314,2026-06-01,50.00,Utilities,expense,Utilities
+297,2026-06-01,47.00,Food,expense,Grocery/restaurant
+258,2026-06-01,4000.00,Salary,income,Monthly salary
+244,2026-05-28,9.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+221,2026-05-28,71.00,Food,expense,Grocery/restaurant
+219,2026-05-28,57.00,Food,expense,Grocery/restaurant
+257,2026-05-27,79.00,Shopping,expense,Shopping
+229,2026-05-27,60.00,Food,expense,Grocery/restaurant
+225,2026-05-27,43.00,Food,expense,Grocery/restaurant
+246,2026-05-26,15.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+241,2026-05-24,32.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+238,2026-05-24,73.00,Food,expense,Grocery/restaurant
+234,2026-05-24,52.00,Food,expense,Grocery/restaurant
+215,2026-05-23,58.00,Food,expense,Grocery/restaurant
+247,2026-05-22,7.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+243,2026-05-21,28.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+235,2026-05-21,78.00,Food,expense,Grocery/restaurant
+230,2026-05-21,34.00,Food,expense,Grocery/restaurant
+223,2026-05-21,40.00,Food,expense,Grocery/restaurant
+218,2026-05-21,62.00,Food,expense,Grocery/restaurant
+256,2026-05-20,43.00,Health,expense,"Healthcare (doctor, pharmacy)"
+250,2026-05-19,27.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+236,2026-05-18,62.00,Food,expense,Grocery/restaurant
+228,2026-05-18,17.00,Food,expense,Grocery/restaurant
+222,2026-05-17,22.00,Food,expense,Grocery/restaurant
+251,2026-05-16,24.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+242,2026-05-16,20.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+214,2026-05-16,32.00,Food,expense,Grocery/restaurant
+212,2026-05-15,638.00,Freelance,income,Freelance gig
+232,2026-05-14,47.00,Food,expense,Grocery/restaurant
+252,2026-05-13,10.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+226,2026-05-13,43.00,Food,expense,Grocery/restaurant
+237,2026-05-12,21.00,Food,expense,Grocery/restaurant
+233,2026-05-12,54.00,Food,expense,Grocery/restaurant
+224,2026-05-12,79.00,Food,expense,Grocery/restaurant
+239,2026-05-11,41.00,Food,expense,Grocery/restaurant
+249,2026-05-10,13.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+240,2026-05-10,21.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+217,2026-05-10,31.00,Food,expense,Grocery/restaurant
+231,2026-05-09,77.00,Food,expense,Grocery/restaurant
+216,2026-05-09,37.00,Food,expense,Grocery/restaurant
+248,2026-05-08,32.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+253,2026-05-07,100.00,Utilities,expense,Utilities
+220,2026-05-07,45.00,Food,expense,Grocery/restaurant
+213,2026-05-05,1200.00,Rent,expense,Monthly rent
+227,2026-05-04,78.00,Food,expense,Grocery/restaurant
+245,2026-05-02,17.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+255,2026-05-01,32.00,Entertainment,expense,Entertainment
+254,2026-05-01,50.00,Utilities,expense,Utilities
+211,2026-05-01,4000.00,Salary,income,Monthly salary
+182,2026-04-28,68.00,Food,expense,Grocery/restaurant
+197,2026-04-27,47.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+191,2026-04-27,45.00,Food,expense,Grocery/restaurant
+188,2026-04-27,67.00,Food,expense,Grocery/restaurant
+177,2026-04-26,61.00,Food,expense,Grocery/restaurant
+206,2026-04-25,50.00,Utilities,expense,Utilities
+174,2026-04-23,62.00,Food,expense,Grocery/restaurant
+208,2026-04-22,500.00,Health,expense,"Healthcare (doctor, pharmacy)"
+199,2026-04-22,23.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+194,2026-04-22,23.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+192,2026-04-20,22.00,Food,expense,Grocery/restaurant
+185,2026-04-20,56.00,Food,expense,Grocery/restaurant
+190,2026-04-18,48.00,Food,expense,Grocery/restaurant
+183,2026-04-18,46.00,Food,expense,Grocery/restaurant
+181,2026-04-18,61.00,Food,expense,Grocery/restaurant
+179,2026-04-18,44.00,Food,expense,Grocery/restaurant
+196,2026-04-16,14.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+178,2026-04-16,15.00,Food,expense,Grocery/restaurant
+193,2026-04-15,45.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+180,2026-04-15,77.00,Food,expense,Grocery/restaurant
+172,2026-04-14,28.00,Food,expense,Grocery/restaurant
+209,2026-04-13,50.00,Shopping,expense,Shopping
+175,2026-04-13,33.00,Food,expense,Grocery/restaurant
+203,2026-04-12,26.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+171,2026-04-12,41.00,Food,expense,Grocery/restaurant
+198,2026-04-11,39.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+195,2026-04-11,11.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+176,2026-04-11,27.00,Food,expense,Grocery/restaurant
+202,2026-04-10,40.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+189,2026-04-09,57.00,Food,expense,Grocery/restaurant
+201,2026-04-08,34.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+184,2026-04-08,55.00,Food,expense,Grocery/restaurant
+169,2026-04-08,68.00,Food,expense,Grocery/restaurant
+168,2026-04-08,43.00,Food,expense,Grocery/restaurant
+210,2026-04-06,91.00,Education,expense,"Education (books, courses)"
+187,2026-04-06,64.00,Food,expense,Grocery/restaurant
+186,2026-04-05,31.00,Food,expense,Grocery/restaurant
+167,2026-04-05,1200.00,Rent,expense,Monthly rent
+173,2026-04-04,64.00,Food,expense,Grocery/restaurant
+205,2026-04-03,100.00,Utilities,expense,Utilities
+204,2026-04-03,48.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+200,2026-04-03,28.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+207,2026-04-02,12.00,Entertainment,expense,Entertainment
+170,2026-04-02,48.00,Food,expense,Grocery/restaurant
+166,2026-04-01,4000.00,Salary,income,Monthly salary
+162,2026-03-28,50.00,Utilities,expense,Utilities
+149,2026-03-28,23.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+128,2026-03-28,34.00,Food,expense,Grocery/restaurant
+156,2026-03-27,10.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+125,2026-03-27,27.00,Food,expense,Grocery/restaurant
+142,2026-03-26,18.00,Food,expense,Grocery/restaurant
+150,2026-03-24,13.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+138,2026-03-24,31.00,Food,expense,Grocery/restaurant
+134,2026-03-24,45.00,Food,expense,Grocery/restaurant
+133,2026-03-24,38.00,Food,expense,Grocery/restaurant
+129,2026-03-24,20.00,Food,expense,Grocery/restaurant
+120,2026-03-23,65.00,Food,expense,Grocery/restaurant
+158,2026-03-21,21.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+131,2026-03-21,76.00,Food,expense,Grocery/restaurant
+124,2026-03-21,66.00,Food,expense,Grocery/restaurant
+137,2026-03-20,36.00,Food,expense,Grocery/restaurant
+114,2026-03-20,184.00,Investments,income,Investment returns
+161,2026-03-19,100.00,Utilities,expense,Utilities
+135,2026-03-19,80.00,Food,expense,Grocery/restaurant
+163,2026-03-18,16.00,Entertainment,expense,Entertainment
+157,2026-03-18,29.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+155,2026-03-18,11.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+136,2026-03-17,77.00,Food,expense,Grocery/restaurant
+126,2026-03-17,67.00,Food,expense,Grocery/restaurant
+119,2026-03-17,72.00,Food,expense,Grocery/restaurant
+139,2026-03-16,75.00,Food,expense,Grocery/restaurant
+123,2026-03-16,51.00,Food,expense,Grocery/restaurant
+148,2026-03-15,25.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+153,2026-03-14,31.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+141,2026-03-14,75.00,Food,expense,Grocery/restaurant
+117,2026-03-14,78.00,Food,expense,Grocery/restaurant
+145,2026-03-13,44.00,Food,expense,Grocery/restaurant
+164,2026-03-12,40.00,Health,expense,"Healthcare (doctor, pharmacy)"
+147,2026-03-09,27.00,Food,expense,Grocery/restaurant
+143,2026-03-09,20.00,Food,expense,Grocery/restaurant
+165,2026-03-08,57.00,Shopping,expense,Shopping
+146,2026-03-08,45.00,Food,expense,Grocery/restaurant
+130,2026-03-07,64.00,Food,expense,Grocery/restaurant
+159,2026-03-05,35.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+121,2026-03-05,26.00,Food,expense,Grocery/restaurant
+115,2026-03-05,1200.00,Rent,expense,Monthly rent
+152,2026-03-04,22.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+132,2026-03-04,52.00,Food,expense,Grocery/restaurant
+151,2026-03-03,27.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+154,2026-03-02,29.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+140,2026-03-02,62.00,Food,expense,Grocery/restaurant
+127,2026-03-02,48.00,Food,expense,Grocery/restaurant
+122,2026-03-02,79.00,Food,expense,Grocery/restaurant
+160,2026-03-01,31.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+144,2026-03-01,42.00,Food,expense,Grocery/restaurant
+118,2026-03-01,47.00,Food,expense,Grocery/restaurant
+116,2026-03-01,53.00,Food,expense,Grocery/restaurant
+113,2026-03-01,4000.00,Salary,income,Monthly salary
+69,2026-02-28,44.00,Food,expense,Grocery/restaurant
+68,2026-02-28,65.00,Food,expense,Grocery/restaurant
+62,2026-02-28,52.00,Food,expense,Grocery/restaurant
+95,2026-02-27,27.00,Food,expense,Grocery/restaurant
+75,2026-02-27,76.00,Food,expense,Grocery/restaurant
+107,2026-02-26,100.00,Utilities,expense,Utilities
+103,2026-02-26,27.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+63,2026-02-26,53.00,Food,expense,Grocery/restaurant
+101,2026-02-23,50.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+84,2026-02-23,27.00,Food,expense,Grocery/restaurant
+74,2026-02-22,16.00,Food,expense,Grocery/restaurant
+72,2026-02-22,31.00,Food,expense,Grocery/restaurant
+98,2026-02-20,21.00,Food,expense,Grocery/restaurant
+91,2026-02-20,65.00,Food,expense,Grocery/restaurant
+90,2026-02-20,59.00,Food,expense,Grocery/restaurant
+86,2026-02-20,17.00,Food,expense,Grocery/restaurant
+93,2026-02-19,15.00,Food,expense,Grocery/restaurant
+112,2026-02-18,68.00,Education,expense,"Education (books, courses)"
+109,2026-02-17,15.00,Entertainment,expense,Entertainment
+85,2026-02-17,59.00,Food,expense,Grocery/restaurant
+67,2026-02-17,29.00,Food,expense,Grocery/restaurant
+80,2026-02-16,39.00,Food,expense,Grocery/restaurant
+97,2026-02-15,22.00,Food,expense,Grocery/restaurant
+96,2026-02-15,69.00,Food,expense,Grocery/restaurant
+94,2026-02-13,22.00,Food,expense,Grocery/restaurant
+92,2026-02-13,65.00,Food,expense,Grocery/restaurant
+102,2026-02-12,16.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+99,2026-02-11,38.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+76,2026-02-11,68.00,Food,expense,Grocery/restaurant
+87,2026-02-10,56.00,Food,expense,Grocery/restaurant
+88,2026-02-09,20.00,Food,expense,Grocery/restaurant
+110,2026-02-08,27.00,Health,expense,"Healthcare (doctor, pharmacy)"
+106,2026-02-08,26.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+89,2026-02-08,34.00,Food,expense,Grocery/restaurant
+83,2026-02-08,68.00,Food,expense,Grocery/restaurant
+78,2026-02-08,26.00,Food,expense,Grocery/restaurant
+79,2026-02-07,43.00,Food,expense,Grocery/restaurant
+73,2026-02-07,80.00,Food,expense,Grocery/restaurant
+64,2026-02-07,53.00,Food,expense,Grocery/restaurant
+104,2026-02-06,14.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+82,2026-02-06,60.00,Food,expense,Grocery/restaurant
+66,2026-02-06,26.00,Food,expense,Grocery/restaurant
+108,2026-02-05,50.00,Utilities,expense,Utilities
+105,2026-02-05,34.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+65,2026-02-05,77.00,Food,expense,Grocery/restaurant
+61,2026-02-05,1200.00,Rent,expense,Monthly rent
+111,2026-02-02,98.00,Shopping,expense,Shopping
+71,2026-02-02,65.00,Food,expense,Grocery/restaurant
+70,2026-02-02,60.00,Food,expense,Grocery/restaurant
+100,2026-02-01,14.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+81,2026-02-01,48.00,Food,expense,Grocery/restaurant
+77,2026-02-01,23.00,Food,expense,Grocery/restaurant
+60,2026-02-01,4000.00,Salary,income,Monthly salary
+13,2026-01-28,71.00,Food,expense,Grocery/restaurant
+11,2026-01-28,55.00,Food,expense,Grocery/restaurant
+7,2026-01-27,46.00,Food,expense,Grocery/restaurant
+4,2026-01-26,47.00,Food,expense,Grocery/restaurant
+3,2026-01-26,33.00,Food,expense,Grocery/restaurant
+33,2026-01-25,62.00,Food,expense,Grocery/restaurant
+29,2026-01-25,50.00,Food,expense,Grocery/restaurant
+46,2026-01-23,12.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+59,2026-01-22,57.00,Shopping,expense,Shopping
+8,2026-01-22,30.00,Food,expense,Grocery/restaurant
+53,2026-01-21,49.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+45,2026-01-21,15.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+44,2026-01-21,31.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+17,2026-01-21,49.00,Food,expense,Grocery/restaurant
+26,2026-01-20,39.00,Food,expense,Grocery/restaurant
+9,2026-01-20,33.00,Food,expense,Grocery/restaurant
+51,2026-01-19,17.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+42,2026-01-19,16.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+25,2026-01-19,65.00,Food,expense,Grocery/restaurant
+23,2026-01-19,20.00,Food,expense,Grocery/restaurant
+19,2026-01-19,25.00,Food,expense,Grocery/restaurant
+30,2026-01-18,62.00,Food,expense,Grocery/restaurant
+57,2026-01-16,18.00,Entertainment,expense,Entertainment
+55,2026-01-16,100.00,Utilities,expense,Utilities
+48,2026-01-16,48.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+49,2026-01-15,50.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+40,2026-01-15,14.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+6,2026-01-15,48.00,Food,expense,Grocery/restaurant
+56,2026-01-14,50.00,Utilities,expense,Utilities
+47,2026-01-14,45.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+39,2026-01-14,41.00,Food,expense,Grocery/restaurant
+52,2026-01-13,5.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+43,2026-01-13,38.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+21,2026-01-13,18.00,Food,expense,Grocery/restaurant
+20,2026-01-13,70.00,Food,expense,Grocery/restaurant
+38,2026-01-12,52.00,Food,expense,Grocery/restaurant
+37,2026-01-12,66.00,Food,expense,Grocery/restaurant
+36,2026-01-12,68.00,Food,expense,Grocery/restaurant
+50,2026-01-10,6.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+32,2026-01-10,18.00,Food,expense,Grocery/restaurant
+14,2026-01-09,32.00,Food,expense,Grocery/restaurant
+58,2026-01-08,40.00,Health,expense,"Healthcare (doctor, pharmacy)"
+35,2026-01-08,46.00,Food,expense,Grocery/restaurant
+34,2026-01-08,24.00,Food,expense,Grocery/restaurant
+15,2026-01-08,42.00,Food,expense,Grocery/restaurant
+31,2026-01-07,77.00,Food,expense,Grocery/restaurant
+22,2026-01-07,58.00,Food,expense,Grocery/restaurant
+28,2026-01-06,23.00,Food,expense,Grocery/restaurant
+24,2026-01-06,38.00,Food,expense,Grocery/restaurant
+18,2026-01-06,24.00,Food,expense,Grocery/restaurant
+5,2026-01-06,39.00,Food,expense,Grocery/restaurant
+12,2026-01-05,52.00,Food,expense,Grocery/restaurant
+2,2026-01-05,1200.00,Rent,expense,Monthly rent
+16,2026-01-04,75.00,Food,expense,Grocery/restaurant
+41,2026-01-03,34.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+10,2026-01-03,65.00,Food,expense,Grocery/restaurant
+27,2026-01-02,77.00,Food,expense,Grocery/restaurant
+54,2026-01-01,33.00,Transport,expense,"Transportation (gas, rideshare, public transit)"
+1,2026-01-01,4000.00,Salary,income,Monthly salary

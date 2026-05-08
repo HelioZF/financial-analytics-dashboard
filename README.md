@@ -29,7 +29,7 @@ This is **Project 5 of 6** in my backend portfolio.
 - **Income** — full-year source breakdown donut, monthly bars, and the top 10 income items.
 - **Budget** — per-category progress bars for the current month with under/over indicators.
 - **Transactions** — filterable, paginated transaction list (category, type, date range) with a validated form for adding new entries.
-- **Export** — streaming CSV download of the full transaction history (UTF-8 BOM for Excel compatibility).
+- **Export** — streaming CSV download of the full transaction history (UTF-8 BOM for Excel compatibility). See [`docs/sample_export.csv`](docs/sample_export.csv) for an example of what the endpoint actually produces.
 
 ---
 
