@@ -16,8 +16,7 @@ dependencies = [
     # IMPROVE (nit, optional): other lines in this file use `>=X.Y` without a space (e.g. `asyncpg >=0.29`).
     #   Your line has `>= 4.1` with a space. Both are valid PEP 508, but matching the existing style
     #   keeps the file consistent. Take it or leave it.
-    "bcrypt >= 4.1",
-    "pandas >=2.2"
+    "bcrypt >= 4.1"
     ]
 
 [project.optional-dependencies]
