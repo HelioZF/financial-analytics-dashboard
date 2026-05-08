@@ -2,20 +2,20 @@
 
 > **Living document.** Update the checkboxes as work progresses. This is the source of truth for "where are we" — read it before starting any session.
 
-**Last updated:** 2026-05-05 (end of day)
-**Current phase:** Phase 8 in progress — tests complete, docs + cleanup remaining
-**Commits done:** 11 / 13 feature commits (plus chore + fix commits)
-**Pytest:** 36 / 36 passing — full green suite (smoke + service-layer + integration)
-**Status:** All feature work shipped, all tests green. Two commits to project completion.
+**Last updated:** 2026-05-06
+**Current phase:** Phase 8 nearly done — only commit #13 (drop pandas) remaining
+**Commits done:** 12 / 13 feature commits (plus chore + fix commits)
+**Pytest:** 36 / 36 passing
+**Status:** README + AI context + LICENSE shipped. One commit to project completion: drop the unused pandas dependency.
 
 **Resume here next session:**
 1. `docker compose up -d`
-2. Run the existing suite to confirm green: `docker compose exec app pytest tests/ -v` → expect 36 passed
-3. Start **commit #12 — README + portfolio docs**. Open decisions:
-   - Screenshots: capture polished ones first OR use placeholders and fill later? (Helio's call)
-   - Mermaid architecture diagram: yes by default
-   - Optional `docs/ai/system_context.md` for the pipeline Docs Agent artifact
-4. After #12, just **commit #13 — drop pandas** (already unused since ADR #10) ships Project 5.
+2. Start **commit #13 — drop pandas**. Tasks:
+   - Confirm no file imports pandas: `grep -r "import pandas\|from pandas" app/ tests/ seed/` → expect no output
+   - Remove `"pandas >=2.2"` line from `pyproject.toml`
+   - `docker compose down -v && docker compose up --build` to confirm full stack still boots
+   - `pytest tests/ -v` to confirm 36/36 still green
+3. Optionally do Phase 9 — Process Agent retrospective at `docs/process_improvements/retro_project5.md`.
 
 **Key references:**
 - [docs/TESTS.md](TESTS.md) — full test inventory (35 manual + 36 pytest, all passing)
@@ -336,7 +336,7 @@ Each commit = one full page (service + router + template). Same pattern as Phase
 | Phase 5 | #1, #2 | ✅ Complete | Overview module — `92080cd`, `b72020e` |
 | Phase 6 | #3, #4, #5 | ✅ Complete | `0b7eab4`, `1a35395`, `8f008ef` |
 | Phase 7 | #6, #7, #8 | ✅ Complete | `4cc0a71`, `88fbc8e`, `34488d3` | Transactions + Export |
-| Phase 8 | #9–#13 | 🟡 In progress | #9 (`ea4c8d9`), #10 (`b7ea11c`), #11 (`e267299`) done; #12 README next |
+| Phase 8 | #9–#13 | 🟡 In progress | #9 (`ea4c8d9`), #10 (`b7ea11c`), #11 (`e267299`), #12 (`5937479`) done; #13 drop pandas next |
 | Phase 9 | — | ⬜ Not started | Retrospective artifact |
 
 **Legend:** ⬜ Not started · 🟡 In progress · ✅ Complete · 🛑 Blocked
